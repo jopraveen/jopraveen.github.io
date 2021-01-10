@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,26 +7,152 @@
     <title>Jopraveen</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/new.js"></script>
+    <style>
+      #ftco-loader {
+          position: fixed;
+          width: 96px;
+          height: 96px;
+          left: 50%;
+          top: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          background-color: rgba(255, 255, 255, 0.9);
+          -webkit-box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24);
+          box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24);
+          border-radius: 16px;
+          opacity: 0;
+          visibility: hidden;
+          -webkit-transition: opacity .2s ease-out, visibility 0s linear .2s;
+          -o-transition: opacity .2s ease-out, visibility 0s linear .2s;
+          transition: opacity .2s ease-out, visibility 0s linear .2s;
+          z-index: 1000;
+        }
+
+        #ftco-loader.fullscreen {
+          padding: 0;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          -webkit-transform: none;
+          -ms-transform: none;
+          transform: none;
+          background-color: #fff;
+          border-radius: 0;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+        }
+
+        #ftco-loader.show {
+          -webkit-transition: opacity .4s ease-out, visibility 0s linear 0s;
+          -o-transition: opacity .4s ease-out, visibility 0s linear 0s;
+          transition: opacity .4s ease-out, visibility 0s linear 0s;
+          visibility: visible;
+          opacity: 1;
+        }
+
+        #ftco-loader .circular {
+          -webkit-animation: loader-rotate 2s linear infinite;
+          animation: loader-rotate 2s linear infinite;
+          position: absolute;
+          left: calc(50% - 24px);
+          top: calc(50% - 24px);
+          display: block;
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+
+        #ftco-loader .path {
+          stroke-dasharray: 1, 200;
+          stroke-dashoffset: 0;
+          -webkit-animation: loader-dash 1.5s ease-in-out infinite;
+          animation: loader-dash 1.5s ease-in-out infinite;
+          stroke-linecap: round;
+        }
+
+        @-webkit-keyframes loader-rotate {
+          100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes loader-rotate {
+          100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+      .text-typed::after {
+        content: '|';
+        display: inline;
+        -webkit-animation: blink 1s infinite;
+        -moz-animation: blink 1s infinite;
+        animation: blink 1s infinite;
+      }
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-moz-keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
 </head>
 
 
 <body>
-    <header>
+  <!-- Pre Loader -->
+  <div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/>
+    </svg>
+  </div>
+
+  <header>
         <a href="#" class="logo">Portfolio</a>
         <div class="toggle" onclick="toggleMenu();"></div>
         <ul class="menu">
-            <li><a href="#home" onclick="toggleMenu();">Home</a></li>
-            <li><a href="#about" onclick="toggleMenu();">About</a></li>
-            <li><a href="#projects" onclick="toggleMenu();">Projects</a></li>
-            <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>   
-            <li><a href="#copyright" onclick="toggleMenu();">Doubts?</a></li>      
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>   
+            <li><a href="#copyright">Doubts?</a></li>      
         </ul>
     </header> 
 
     <section class="banner" id="home">
         <div class="textBox">
-            <h2>Hello👋 I'm<br><span>Jopraveen</span></h2>
+            <h2>Hello👋 I'm<br><span class="text-typed">PROGRAMMER</span></h2>
             <h3><br>I'm a PROGRAMMER | PENTESER</h3>
             <a href="#about" class="btn">About Me</a>
         </div>
@@ -37,7 +164,7 @@
         </div>
         <div class="content">
             <div class="contentBox w50">
-            <h3><br><br>I'm a PROGRAMMER | PENTESER</h3>
+            <h3><br><br>I'm a <span class="text-typed">PROGRAMMER</span></h3>
             <p>
                 <br><br>Hello guys, welcome to my portfolio page<br><br>Happy to see you here 🙂<br><br>This site is under construction 
             </p>
@@ -150,7 +277,29 @@
         <!-- End of site -->
 
     </div>
+    <!-- Add Javascript on End -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"></script>
+<script src="js/new.js"></script>
+<script>
+  (function () {
+    'use strict'
+        var typed = new Typed(".text-typed", {
+        strings: ['PROGRAMMER', 'PENTESER', 'HTB TOPPER', 'BLOGGER'],
+        typeSpeed: 80,
+        loop: true,
+        backDelay: 900,
+        startDelay: 400,
+        backSpeed: 50,
+        loop: true,
+        showCursor: false,
+      });
+      
+      window.addEventListener("load", function() {
+        setTimeout(() => {
+          document.querySelector(".fullscreen").style.display = "none";
+        }, 500);
+      });
+  })();
+</script>
 </body>
-
-
 </html> 
