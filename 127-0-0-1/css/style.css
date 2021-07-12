@@ -1,3 +1,8 @@
+::selection{
+    color: red;
+    background: rgba(0, 0, 0, 0.911));
+}
+
 html{
     background: url(../gifs/bg.gif) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -12,7 +17,7 @@ html{
 .nav-bar{
     height: 25px;
     width: 100%;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.87);
     opacity: 60%;
     border-radius: 7px;
 }
@@ -20,7 +25,7 @@ html{
 .nav-bar:hover{
     height: 25px;
     width: 100%;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     opacity: 80%;
     border-radius: 7px;
 }
