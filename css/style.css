@@ -9,6 +9,7 @@ html{
     background-size: cover;
     opacity: 100%;
     font-family: monospace;
+	cursor: url(../img/cursor.png), pointer;
 }
 
 /* LOGIN FORM */
