@@ -88,3 +88,13 @@ function TheMatrixRain(charset) {
     }
 }
 TheMatrixRain (en_s);
+
+// TO GET IP
+$.getJSON("https://api.ipify.org?format=json",
+        function(data) {
+            $("#IP").html(data.ip);
+        })
+
+// TO GET TIME
+var dt = new Date();
+document.getElementById("TIME").innerHTML = dt.toLocaleString();

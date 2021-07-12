@@ -9,19 +9,21 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="../127-0-0-1/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="nav-bar">
         <ul>
-            <li><a href="#"><i class="fa fa-home"></i></a></li>
+            <li><a href="../127-0-0-1/index.html"><i class="fa fa-home"></i></a></li>
             <li><a href="#">writeups</a></li>
-            <li><a href="#">cheatsheets</a></li>
+            <li><a href="#">learn</a></li>
             <li><a href="#">about</a></li>
+            <li><a id="TIME" class="date"></a></li>
           </ul>
     </div>
     <div class="terminal">
         <div class="term-1">
-            <p>=x[terminal]x=</p>
+            <p id="IP">Getting IP...</p>
         </div>
         <div class="term-2">
             <p>jopraveen@pwn:~$ whoami</p>

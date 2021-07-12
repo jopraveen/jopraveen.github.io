@@ -111,8 +111,6 @@ canvas {
     height: 100px;
 }
 
-
-
 .nav-bar ul li{
     display: inline-block;
     text-decoration: none;
@@ -133,4 +131,9 @@ canvas {
     color: white;
     
     padding: 2px;
+}
+.date{
+    right: 25px;
+    position: absolute;
+    top: 15px;
 }
