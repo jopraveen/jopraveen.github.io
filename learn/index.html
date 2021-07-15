@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../learn/learn.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>🏌Learn</title>
-    <script defer src="../learn/learn.js"></script>
 </head>
 <body>
     <div class="nav-bar">
@@ -21,8 +19,880 @@
             <li><a id="TIME" class="date"></a></li>
           </ul>
     </div>
-    <div class="loading">
-        <h1>LOADING...</h1>
+    <div class="challenges">
+        <div class="categories">
+            <ul>
+                <h1>categories</h1>
+                <h2><a href="#">[WEB]</a></h2>
+                <h2><a href="#">STEGO</a></h2>
+                <h2><a href="#">CRYPTO</a></h2>
+                <h2><a href="#">FORENSICS</a></h2>
+                <h2><a href="#">MISC</a></h2>
+                <h2><a href="#">REVERSING</a></h2>
+                <h2><a href="#">PWN</a></h2>
+                <h2><a href="#">OSINT</a></h2>
+                <h2><a href="#">MOBILE</a></h2>
+            </ul>
+        </div>
+        <div class="challs">
+            <div>
+            <h1 style="text-align: center;color: rgb(255, 255, 255);background: rgb(0, 0, 0);border-radius: 5px;opacity: 70%;">challenges</h1>
+            </div>
+            <div class="web">
+                <h2 style="color: rgb(255, 255, 255);padding-left: 20px;"># WEB</h2>
+                <div class="web-boxes">
+
+                    <!-- BOX 1 -->
+                    <button id="webbox1" class="webbox-1" style="cursor: pointer;">CHALLENGE-1</button>
+                    <div id="web-chall-1" class="chall-1">
+                        <div class="chall-1-info">
+                            <span class="close-1" id="x-1">&times</span>
+                            <p style="text-align: center;">
+                                <b style="font-size: 20px; color:rgb(4, 238, 218);">THIS IS THE FIRST WEB CHALLENGE</b><br><br><br>
+                                <b style="font-size: 18px;">To finish this challenge<br>Your need to make a 0 day</b><br><br><br><br>
+                                <b style="font-size: 18px;">Links: <a href="#" style="text-decoration: none;color:rgb(4, 238, 218);">web-chall-1</a></b>
+                            </p>
+                            <br><br>
+                            <input type="text" name="web-flag-1" placeholder="flag{your_flag}" id="webflag-1" style="margin: auto;display: block;text-align: center;font-size: 18px;font-family: monospace;font-weight: bolder; border: 1px solid rgb(10, 10, 10);border-radius: 5px;">
+                            <button onclick="return web_flagcheck_1()" type="submit" style="cursor: pointer;margin: auto;display: block;margin-top: 8px;font-family: monospace;width: 60px;height: 30px;font-weight: bolder;font-size: 15px;border-radius: 8px;color: black;background: turquoise;border: 1px solid rgb(3, 236, 216);">CHECK</button>
+                        </div>                    
+                    </div>
+                    <!-- END OF BOX-1 -->
+
+                    <!-- BOX 2 -->
+                    <button id="webbox2" class="webbox-1" style="cursor: pointer;">CHALLENGE-1</button>
+                    <div id="web-chall-2" class="chall-2">
+                        <div class="chall-2-info">
+                            <span class="close-2" id="x-2">&times</span>
+                            <p style="text-align: center;">
+                                <b style="font-size: 20px; color:rgb(4, 238, 218);">THIS IS THE FIRST WEB CHALLENGE</b><br><br><br>
+                                <b style="font-size: 18px;">To finish this challenge<br>Your need to make a 0 day</b><br><br><br><br>
+                                <b style="font-size: 18px;">Links: <a href="#" style="text-decoration: none;color:rgb(4, 238, 218);">web-chall-1</a></b>
+                            </p>
+                            <br><br>
+                            <input type="text" name="web-flag-2" placeholder="flag{your_flag}" id="webflag-2" style="margin: auto;display: block;text-align: center;font-size: 18px;font-family: monospace;font-weight: bolder; border: 1px solid rgb(10, 10, 10);border-radius: 5px;">
+                            <button onclick="return web_flagcheck_2()" type="submit" style="cursor: pointer;margin: auto;display: block;margin-top: 8px;font-family: monospace;width: 60px;height: 30px;font-weight: bolder;font-size: 15px;border-radius: 8px;color: black;background: turquoise;border: 1px solid rgb(3, 236, 216);">CHECK</button>
+                        </div>                    
+                    </div>
+                    <!-- END OF BOX-2 -->
+
+                    <!-- BOX 3 -->
+                    <button id="webbox3" class="webbox-1" style="cursor: pointer;">CHALLENGE-1</button>
+                    <div id="web-chall-3" class="chall-3">
+                        <div class="chall-3-info">
+                            <span class="close-3" id="x-3">&times</span>
+                            <p style="text-align: center;">
+                                <b style="font-size: 20px; color:rgb(4, 238, 218);">THIS IS THE FIRST WEB CHALLENGE</b><br><br><br>
+                                <b style="font-size: 18px;">To finish this challenge<br>Your need to make a 0 day</b><br><br><br><br>
+                                <b style="font-size: 18px;">Links: <a href="#" style="text-decoration: none;color:rgb(4, 238, 218);">web-chall-1</a></b>
+                            </p>
+                            <br><br>
+                            <input type="text" name="web-flag-3" placeholder="flag{your_flag}" id="webflag-3" style="margin: auto;display: block;text-align: center;font-size: 18px;font-family: monospace;font-weight: bolder; border: 1px solid rgb(10, 10, 10);border-radius: 5px;">
+                            <button onclick="return web_flagcheck_3()" type="submit" style="cursor: pointer;margin: auto;display: block;margin-top: 8px;font-family: monospace;width: 60px;height: 30px;font-weight: bolder;font-size: 15px;border-radius: 8px;color: black;background: turquoise;border: 1px solid rgb(3, 236, 216);">CHECK</button>
+                        </div>                    
+                    </div>
+                    <!-- END OF BOX-3 -->
+
+                    <!-- BOX 4 -->
+                    <button id="webbox4" class="webbox-1" style="cursor: pointer;">CHALLENGE-1</button>
+                    <div id="web-chall-4" class="chall-4">
+                        <div class="chall-4-info">
+                            <span class="close-4" id="x-4">&times</span>
+                            <p style="text-align: center;">
+                                <b style="font-size: 20px; color:rgb(4, 238, 218);">THIS IS THE FIRST WEB CHALLENGE</b><br><br><br>
+                                <b style="font-size: 18px;">To finish this challenge<br>Your need to make a 0 day</b><br><br><br><br>
+                                <b style="font-size: 18px;">Links: <a href="#" style="text-decoration: none;color:rgb(4, 238, 218);">web-chall-1</a></b>
+                            </p>
+                            <br><br>
+                            <input type="text" name="web-flag-4" placeholder="flag{your_flag}" id="webflag-4" style="margin: auto;display: block;text-align: center;font-size: 18px;font-family: monospace;font-weight: bolder; border: 1px solid rgb(10, 10, 10);border-radius: 5px;">
+                            <button onclick="return web_flagcheck_4()" type="submit" style="cursor: pointer;margin: auto;display: block;margin-top: 8px;font-family: monospace;width: 60px;height: 30px;font-weight: bolder;font-size: 15px;border-radius: 8px;color: black;background: turquoise;border: 1px solid rgb(3, 236, 216);">CHECK</button>
+                        </div>                    
+                    </div>
+                    <!-- END OF BOX-4 -->
+
+                    <!-- BOX 5 -->
+                    <button id="webbox5" class="webbox-1" style="cursor: pointer;">CHALLENGE-1</button>
+                    <div id="web-chall-5" class="chall-5">
+                        <div class="chall-5-info">
+                            <span class="close-5" id="x-5">&times</span>
+                            <p style="text-align: center;">
+                                <b style="font-size: 20px; color:rgb(4, 238, 218);">THIS IS THE FIRST WEB CHALLENGE</b><br><br><br>
+                                <b style="font-size: 18px;">To finish this challenge<br>Your need to make a 0 day</b><br><br><br><br>
+                                <b style="font-size: 18px;">Links: <a href="#" style="text-decoration: none;color:rgb(4, 238, 218);">web-chall-1</a></b>
+                            </p>
+                            <br><br>
+                            <input type="text" name="web-flag-5" placeholder="flag{your_flag}" id="webflag-5" style="margin: auto;display: block;text-align: center;font-size: 18px;font-family: monospace;font-weight: bolder; border: 1px solid rgb(10, 10, 10);border-radius: 5px;">
+                            <button onclick="return web_flagcheck_5()" type="submit" style="cursor: pointer;margin: auto;display: block;margin-top: 8px;font-family: monospace;width: 60px;height: 30px;font-weight: bolder;font-size: 15px;border-radius: 8px;color: black;background: turquoise;border: 1px solid rgb(3, 236, 216);">CHECK</button>
+                        </div>                    
+                    </div>
+                    <!-- END OF BOX-5 -->
+
+                    <!-- BOX 6 -->
+                    <button id="webbox6" class="webbox-1" style="cursor: pointer;">CHALLENGE-1</button>
+                    <div id="web-chall-6" class="chall-6">
+                        <div class="chall-6-info">
+                            <span class="close-6" id="x-6">&times</span>
+                            <p style="text-align: center;">
+                                <b style="font-size: 20px; color:rgb(4, 238, 218);">THIS IS THE FIRST WEB CHALLENGE</b><br><br><br>
+                                <b style="font-size: 18px;">To finish this challenge<br>Your need to make a 0 day</b><br><br><br><br>
+                                <b style="font-size: 18px;">Links: <a href="#" style="text-decoration: none;color:rgb(4, 238, 218);">web-chall-1</a></b>
+                            </p>
+                            <br><br>
+                            <input type="text" name="web-flag-6" placeholder="flag{your_flag}" id="webflag-6" style="margin: auto;display: block;text-align: center;font-size: 18px;font-family: monospace;font-weight: bolder; border: 1px solid rgb(10, 10, 10);border-radius: 5px;">
+                            <button onclick="return web_flagcheck_6()" type="submit" style="cursor: pointer;margin: auto;display: block;margin-top: 8px;font-family: monospace;width: 60px;height: 30px;font-weight: bolder;font-size: 15px;border-radius: 8px;color: black;background: turquoise;border: 1px solid rgb(3, 236, 216);">CHECK</button>
+                        </div>                    
+                    </div>
+                    <!-- END OF BOX-6 -->
+
+                    <!-- BOX 7 -->
+                    <button id="webbox7" class="webbox-1" style="cursor: pointer;">CHALLENGE-1</button>
+                    <div id="web-chall-7" class="chall-7">
+                        <div class="chall-7-info">
+                            <span class="close-7" id="x-7">&times</span>
+                            <p style="text-align: center;">
+                                <b style="font-size: 20px; color:rgb(4, 238, 218);">THIS IS THE FIRST WEB CHALLENGE</b><br><br><br>
+                                <b style="font-size: 18px;">To finish this challenge<br>Your need to make a 0 day</b><br><br><br><br>
+                                <b style="font-size: 18px;">Links: <a href="#" style="text-decoration: none;color:rgb(4, 238, 218);">web-chall-1</a></b>
+                            </p>
+                            <br><br>
+                            <input type="text" name="web-flag-7" placeholder="flag{your_flag}" id="webflag-7" style="margin: auto;display: block;text-align: center;font-size: 18px;font-family: monospace;font-weight: bolder; border: 1px solid rgb(10, 10, 10);border-radius: 5px;">
+                            <button onclick="return web_flagcheck_7()" type="submit" style="cursor: pointer;margin: auto;display: block;margin-top: 8px;font-family: monospace;width: 60px;height: 30px;font-weight: bolder;font-size: 15px;border-radius: 8px;color: black;background: turquoise;border: 1px solid rgb(3, 236, 216);">CHECK</button>
+                        </div>                    
+                    </div>
+                    <!-- END OF BOX-7 -->
+
+                    <!-- BOX 8 -->
+                    <button id="webbox8" class="webbox-1" style="cursor: pointer;">CHALLENGE-1</button>
+                    <div id="web-chall-8" class="chall-8">
+                        <div class="chall-8-info">
+                            <span class="close-8" id="x-8">&times</span>
+                            <p style="text-align: center;">
+                                <b style="font-size: 20px; color:rgb(4, 238, 218);">THIS IS THE FIRST WEB CHALLENGE</b><br><br><br>
+                                <b style="font-size: 18px;">To finish this challenge<br>Your need to make a 0 day</b><br><br><br><br>
+                                <b style="font-size: 18px;">Links: <a href="#" style="text-decoration: none;color:rgb(4, 238, 218);">web-chall-1</a></b>
+                            </p>
+                            <br><br>
+                            <input type="text" name="web-flag-8" placeholder="flag{your_flag}" id="webflag-8" style="margin: auto;display: block;text-align: center;font-size: 18px;font-family: monospace;font-weight: bolder; border: 1px solid rgb(10, 10, 10);border-radius: 5px;">
+                            <button onclick="return web_flagcheck_8()" type="submit" style="cursor: pointer;margin: auto;display: block;margin-top: 8px;font-family: monospace;width: 60px;height: 30px;font-weight: bolder;font-size: 15px;border-radius: 8px;color: black;background: turquoise;border: 1px solid rgb(3, 236, 216);">CHECK</button>
+                        </div>                    
+                    </div>
+                    <!-- END OF BOX-2 -->
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+    <style>
+        ::selection{
+    color: red;
+    background: rgba(0, 0, 0, 0.911);
+}
+
+html{
+    /* background: #130c1a; */
+    background: url("https://www.kolpaper.com/wp-content/uploads/2020/07/HD-Vaporwave-Wallpapers.jpg");
+    cursor: url(../img/cursor.png), pointer;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    opacity: 100%;
+    font-family: monospace;
+}
+
+.nav-bar{
+    height: 25px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.87);
+    opacity: 70%;
+    border-radius: 7px;
+}
+
+.nav-bar:hover{
+    height: 25px;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    opacity: 80%;
+    border-radius: 7px;
+}
+
+.nav-bar ul li{
+    display: inline-block;
+    text-decoration: none;
+
+}
+.nav-bar ul li a{
+    align-items: center;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding: 2px;
+}
+.nav-bar ul li a:hover{
+    align-items: center;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bolder;
+    color: white;
+    
+    padding: 2px;
+}
+.date{
+    right: 25px;
+    position: absolute;
+    top: 15px;
+}
+.loading{
+    margin-top: 20px;
+    height: 600px ;
+    width: 100% ;
+    color: white;
+    text-align: center; 
+}
+.loading h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+}
+.challenges{
+    border-radius: 5px;
+    opacity: 90%;
+    margin-top: 25px;
+    /* height: 600px; */
+    height: 95%;
+    width: 100%;
+    background: transparent;
+    color: white;
+}
+.categories{
+    border-radius: 5px;
+    opacity: 85%;
+    height: 70%;
+    width: 20%;
+    /* background: rgb(226, 45, 120); */
+    float: left;
+    margin-top: 6px;
+    margin-left: 8px;
+    color: rgb(7, 230, 181);
+    text-align: center;
+}
+.categories h1,h2{
+    padding-right: 50px;
+}
+.categories h2 a{
+    color: blanchedalmond;
+    text-decoration: none;
+}
+.categories h2 a:hover{
+    font-weight: bolder;
+    color: rgb(255, 0, 140);
+    text-decoration: none;
+    font-size: 23px;
+}
+.challs{
+    margin-right: 10px;
+    margin-top: 6px;
+    border-radius: 5px;
+    opacity: 80%;
+    height: 98%;
+    width: 78%;
+    float: right;
+    /* background: rgb(0, 207, 243); */
+}
+
+/* CHALLENGES */
+
+/* WEB */
+.web{
+    height: 91%;
+    width: 100%;
+    position: relative;
+    bottom: 3%;
+    border-radius: 5px;
+}
+.web-boxes{
+    height: 90%;
+    /* background-color: coral; */
+    /* margin-bottom: 10%; */
+}
+/* BOX -1  */
+.webbox-1{
+    height: 150px;
+    width: 220px;
+    background-color: rgb(0, 255, 234);
+    float: left;
+    margin-left: 3.2%;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1%;
+    opacity: 90%;
+    margin-bottom: 1%;
+    color: black;
+    font-weight: 900;
+}
+.webbox-1 h3{   
+    margin-top: 30%;
+    margin-bottom: 30%;
+    /* color: white; */
+}
+.webbox-1:hover{
+    height: 150px;
+    width: 220px;
+    background-color: rgb(0, 195, 255);
+    float: left;
+    margin-left: 3.2%;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1%;
+    opacity: 90%;
+    margin-bottom: 1%;
+    color: black;
+    font-weight: 900;
+}
+
+/* CHALL BOXES STYLE */
+.chall-1{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+.chall-1-info{
+    background-color: black;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid rgb(3, 221, 236);
+    width: 80%;
+    border-radius: 3px;
+}
+.close-1 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-1:hover,
+.close-1:focus {
+  color: rgb(0, 248, 236);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* BOX -2 */
+.webbox-1{
+    height: 150px;
+    width: 220px;
+    background-color: rgb(0, 255, 234);
+    float: left;
+    margin-left: 3.2%;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1%;
+    opacity: 90%;
+    margin-bottom: 1%;
+    color: black;
+    font-weight: 900;
+}
+.webbox-1 h3{   
+    margin-top: 30%;
+    margin-bottom: 30%;
+    /* color: white; */
+}
+.webbox-1:hover{
+    height: 150px;
+    width: 220px;
+    background-color: rgb(0, 195, 255);
+    float: left;
+    margin-left: 3.2%;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1%;
+    opacity: 90%;
+    margin-bottom: 1%;
+    color: black;
+    font-weight: 900;
+}
+
+/* BOX -2 */
+.chall-2{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+.chall-2-info{
+    background-color: black;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid rgb(3, 221, 236);
+    width: 80%;
+    border-radius: 3px;
+}
+.close-2 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-2:hover,
+.close-2:focus {
+  color: rgb(0, 248, 236);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* BOX -3 */
+.chall-3{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+.chall-3-info{
+    background-color: black;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid rgb(3, 221, 236);
+    width: 80%;
+    border-radius: 3px;
+}
+.close-3 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-3:hover,
+.close-3:focus {
+  color: rgb(0, 248, 236);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* BOX -4 */
+.chall-4{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+.chall-4-info{
+    background-color: black;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid rgb(3, 221, 236);
+    width: 80%;
+    border-radius: 3px;
+}
+.close-4 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-4:hover,
+.close-4:focus {
+  color: rgb(0, 248, 236);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* BOX -5 */
+.chall-5{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+.chall-5-info{
+    background-color: black;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid rgb(3, 221, 236);
+    width: 80%;
+    border-radius: 3px;
+}
+.close-5 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-5:hover,
+.close-5:focus {
+  color: rgb(0, 248, 236);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* BOX -6 */
+.chall-6{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+.chall-6-info{
+    background-color: black;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid rgb(3, 221, 236);
+    width: 80%;
+    border-radius: 3px;
+}
+.close-6 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-6:hover,
+.close-6:focus {
+  color: rgb(0, 248, 236);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* BOX -7 */
+.chall-7{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+.chall-7-info{
+    background-color: black;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid rgb(3, 221, 236);
+    width: 80%;
+    border-radius: 3px;
+}
+.close-7 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-7:hover,
+.close-7:focus {
+  color: rgb(0, 248, 236);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* BOX -8 */
+.chall-8{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: hidden;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+.chall-8-info{
+    background-color: black;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid rgb(3, 221, 236);
+    width: 80%;
+    border-radius: 3px;
+}
+.close-8 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-8:hover,
+.close-8:focus {
+  color: rgb(0, 248, 236);
+  text-decoration: none;
+  cursor: pointer;
+}
+    </style>
+    <script>
+    // TO GET TIME
+    var date = new Date();
+    document.getElementById("TIME").innerHTML = date.toLocaleString();
+    
+    ////////////////////////////////////////////////////
+    // BOX 1
+    var modal = document.getElementById("web-chall-1");
+    var btn = document.getElementById("webbox1");
+    var span = document.getElementById("x-1");
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    // FLAG CHECK -1
+    function web_flagcheck_1(){
+        var MD5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLowerCase()};function M(d){for(var _,m="0123456789ABCDEF",f="",r=0;r<d.length;r++)_=d.charCodeAt(r),f+=m.charAt(_>>>4&15)+m.charAt(15&_);return f}function X(d){for(var _=Array(d.length>>2),m=0;m<_.length;m++)_[m]=0;for(m=0;m<8*d.length;m+=8)_[m>>5]|=(255&d.charCodeAt(m/8))<<m%32;return _}function V(d){for(var _="",m=0;m<32*d.length;m+=8)_+=String.fromCharCode(d[m>>5]>>>m%32&255);return _}function Y(d,_){d[_>>5]|=128<<_%32,d[14+(_+64>>>9<<4)]=_;for(var m=1732584193,f=-271733879,r=-1732584194,i=271733878,n=0;n<d.length;n+=16){var h=m,t=f,g=r,e=i;f=md5_ii(f=md5_ii(f=md5_ii(f=md5_ii(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_ff(f=md5_ff(f=md5_ff(f=md5_ff(f,r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+0],7,-680876936),f,r,d[n+1],12,-389564586),m,f,d[n+2],17,606105819),i,m,d[n+3],22,-1044525330),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+4],7,-176418897),f,r,d[n+5],12,1200080426),m,f,d[n+6],17,-1473231341),i,m,d[n+7],22,-45705983),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+8],7,1770035416),f,r,d[n+9],12,-1958414417),m,f,d[n+10],17,-42063),i,m,d[n+11],22,-1990404162),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+12],7,1804603682),f,r,d[n+13],12,-40341101),m,f,d[n+14],17,-1502002290),i,m,d[n+15],22,1236535329),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+1],5,-165796510),f,r,d[n+6],9,-1069501632),m,f,d[n+11],14,643717713),i,m,d[n+0],20,-373897302),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+5],5,-701558691),f,r,d[n+10],9,38016083),m,f,d[n+15],14,-660478335),i,m,d[n+4],20,-405537848),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+9],5,568446438),f,r,d[n+14],9,-1019803690),m,f,d[n+3],14,-187363961),i,m,d[n+8],20,1163531501),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+13],5,-1444681467),f,r,d[n+2],9,-51403784),m,f,d[n+7],14,1735328473),i,m,d[n+12],20,-1926607734),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+5],4,-378558),f,r,d[n+8],11,-2022574463),m,f,d[n+11],16,1839030562),i,m,d[n+14],23,-35309556),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+1],4,-1530992060),f,r,d[n+4],11,1272893353),m,f,d[n+7],16,-155497632),i,m,d[n+10],23,-1094730640),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+13],4,681279174),f,r,d[n+0],11,-358537222),m,f,d[n+3],16,-722521979),i,m,d[n+6],23,76029189),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+9],4,-640364487),f,r,d[n+12],11,-421815835),m,f,d[n+15],16,530742520),i,m,d[n+2],23,-995338651),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+0],6,-198630844),f,r,d[n+7],10,1126891415),m,f,d[n+14],15,-1416354905),i,m,d[n+5],21,-57434055),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+12],6,1700485571),f,r,d[n+3],10,-1894986606),m,f,d[n+10],15,-1051523),i,m,d[n+1],21,-2054922799),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+8],6,1873313359),f,r,d[n+15],10,-30611744),m,f,d[n+6],15,-1560198380),i,m,d[n+13],21,1309151649),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+4],6,-145523070),f,r,d[n+11],10,-1120210379),m,f,d[n+2],15,718787259),i,m,d[n+9],21,-343485551),m=safe_add(m,h),f=safe_add(f,t),r=safe_add(r,g),i=safe_add(i,e)}return Array(m,f,r,i)}function md5_cmn(d,_,m,f,r,i){return safe_add(bit_rol(safe_add(safe_add(_,d),safe_add(f,i)),r),m)}function md5_ff(d,_,m,f,r,i,n){return md5_cmn(_&m|~_&f,d,_,r,i,n)}function md5_gg(d,_,m,f,r,i,n){return md5_cmn(_&f|m&~f,d,_,r,i,n)}function md5_hh(d,_,m,f,r,i,n){return md5_cmn(_^m^f,d,_,r,i,n)}function md5_ii(d,_,m,f,r,i,n){return md5_cmn(m^(_|~f),d,_,r,i,n)}function safe_add(d,_){var m=(65535&d)+(65535&_);return(d>>16)+(_>>16)+(m>>16)<<16|65535&m}function bit_rol(d,_){return d<<_|d>>>32-_}
+        var value = document.getElementById("webflag-1").value;
+        var result = MD5(value.replace(/ /g,''));
+        if (result == "b6bc358df010e8a4a458f23b71146c24"){
+            alert("Correct flag :D");
+        }
+        else{
+            alert("Wrong flag!!");
+        }
+    }
+
+    ////////////////////////////////////////////////////
+    // BOX 2
+    var modal = document.getElementById("web-chall-2");
+    var btn = document.getElementById("webbox2");
+    var span = document.getElementById("x-2");
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    // FLAG CHECK -2
+    function web_flagcheck_2(){
+        var MD5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLowerCase()};function M(d){for(var _,m="0123456789ABCDEF",f="",r=0;r<d.length;r++)_=d.charCodeAt(r),f+=m.charAt(_>>>4&15)+m.charAt(15&_);return f}function X(d){for(var _=Array(d.length>>2),m=0;m<_.length;m++)_[m]=0;for(m=0;m<8*d.length;m+=8)_[m>>5]|=(255&d.charCodeAt(m/8))<<m%32;return _}function V(d){for(var _="",m=0;m<32*d.length;m+=8)_+=String.fromCharCode(d[m>>5]>>>m%32&255);return _}function Y(d,_){d[_>>5]|=128<<_%32,d[14+(_+64>>>9<<4)]=_;for(var m=1732584193,f=-271733879,r=-1732584194,i=271733878,n=0;n<d.length;n+=16){var h=m,t=f,g=r,e=i;f=md5_ii(f=md5_ii(f=md5_ii(f=md5_ii(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_ff(f=md5_ff(f=md5_ff(f=md5_ff(f,r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+0],7,-680876936),f,r,d[n+1],12,-389564586),m,f,d[n+2],17,606105819),i,m,d[n+3],22,-1044525330),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+4],7,-176418897),f,r,d[n+5],12,1200080426),m,f,d[n+6],17,-1473231341),i,m,d[n+7],22,-45705983),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+8],7,1770035416),f,r,d[n+9],12,-1958414417),m,f,d[n+10],17,-42063),i,m,d[n+11],22,-1990404162),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+12],7,1804603682),f,r,d[n+13],12,-40341101),m,f,d[n+14],17,-1502002290),i,m,d[n+15],22,1236535329),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+1],5,-165796510),f,r,d[n+6],9,-1069501632),m,f,d[n+11],14,643717713),i,m,d[n+0],20,-373897302),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+5],5,-701558691),f,r,d[n+10],9,38016083),m,f,d[n+15],14,-660478335),i,m,d[n+4],20,-405537848),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+9],5,568446438),f,r,d[n+14],9,-1019803690),m,f,d[n+3],14,-187363961),i,m,d[n+8],20,1163531501),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+13],5,-1444681467),f,r,d[n+2],9,-51403784),m,f,d[n+7],14,1735328473),i,m,d[n+12],20,-1926607734),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+5],4,-378558),f,r,d[n+8],11,-2022574463),m,f,d[n+11],16,1839030562),i,m,d[n+14],23,-35309556),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+1],4,-1530992060),f,r,d[n+4],11,1272893353),m,f,d[n+7],16,-155497632),i,m,d[n+10],23,-1094730640),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+13],4,681279174),f,r,d[n+0],11,-358537222),m,f,d[n+3],16,-722521979),i,m,d[n+6],23,76029189),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+9],4,-640364487),f,r,d[n+12],11,-421815835),m,f,d[n+15],16,530742520),i,m,d[n+2],23,-995338651),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+0],6,-198630844),f,r,d[n+7],10,1126891415),m,f,d[n+14],15,-1416354905),i,m,d[n+5],21,-57434055),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+12],6,1700485571),f,r,d[n+3],10,-1894986606),m,f,d[n+10],15,-1051523),i,m,d[n+1],21,-2054922799),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+8],6,1873313359),f,r,d[n+15],10,-30611744),m,f,d[n+6],15,-1560198380),i,m,d[n+13],21,1309151649),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+4],6,-145523070),f,r,d[n+11],10,-1120210379),m,f,d[n+2],15,718787259),i,m,d[n+9],21,-343485551),m=safe_add(m,h),f=safe_add(f,t),r=safe_add(r,g),i=safe_add(i,e)}return Array(m,f,r,i)}function md5_cmn(d,_,m,f,r,i){return safe_add(bit_rol(safe_add(safe_add(_,d),safe_add(f,i)),r),m)}function md5_ff(d,_,m,f,r,i,n){return md5_cmn(_&m|~_&f,d,_,r,i,n)}function md5_gg(d,_,m,f,r,i,n){return md5_cmn(_&f|m&~f,d,_,r,i,n)}function md5_hh(d,_,m,f,r,i,n){return md5_cmn(_^m^f,d,_,r,i,n)}function md5_ii(d,_,m,f,r,i,n){return md5_cmn(m^(_|~f),d,_,r,i,n)}function safe_add(d,_){var m=(65535&d)+(65535&_);return(d>>16)+(_>>16)+(m>>16)<<16|65535&m}function bit_rol(d,_){return d<<_|d>>>32-_}
+        var value = document.getElementById("webflag-2").value;
+        var result = MD5(value.replace(/ /g,''));
+        if (result == "b6bc358df010e8a4a458f23b71146c24"){
+            alert("Correct flag :D");
+        }
+        else{
+            alert("Wrong flag!!");
+        }
+    }
+    ////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////
+    // BOX 3
+    var modal = document.getElementById("web-chall-3");
+    var btn = document.getElementById("webbox3");
+    var span = document.getElementById("x-3");
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    // FLAG CHECK -3
+    function web_flagcheck_3(){
+        var MD5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLowerCase()};function M(d){for(var _,m="0123456789ABCDEF",f="",r=0;r<d.length;r++)_=d.charCodeAt(r),f+=m.charAt(_>>>4&15)+m.charAt(15&_);return f}function X(d){for(var _=Array(d.length>>2),m=0;m<_.length;m++)_[m]=0;for(m=0;m<8*d.length;m+=8)_[m>>5]|=(255&d.charCodeAt(m/8))<<m%32;return _}function V(d){for(var _="",m=0;m<32*d.length;m+=8)_+=String.fromCharCode(d[m>>5]>>>m%32&255);return _}function Y(d,_){d[_>>5]|=128<<_%32,d[14+(_+64>>>9<<4)]=_;for(var m=1732584193,f=-271733879,r=-1732584194,i=271733878,n=0;n<d.length;n+=16){var h=m,t=f,g=r,e=i;f=md5_ii(f=md5_ii(f=md5_ii(f=md5_ii(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_ff(f=md5_ff(f=md5_ff(f=md5_ff(f,r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+0],7,-680876936),f,r,d[n+1],12,-389564586),m,f,d[n+2],17,606105819),i,m,d[n+3],22,-1044525330),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+4],7,-176418897),f,r,d[n+5],12,1200080426),m,f,d[n+6],17,-1473231341),i,m,d[n+7],22,-45705983),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+8],7,1770035416),f,r,d[n+9],12,-1958414417),m,f,d[n+10],17,-42063),i,m,d[n+11],22,-1990404162),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+12],7,1804603682),f,r,d[n+13],12,-40341101),m,f,d[n+14],17,-1502002290),i,m,d[n+15],22,1236535329),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+1],5,-165796510),f,r,d[n+6],9,-1069501632),m,f,d[n+11],14,643717713),i,m,d[n+0],20,-373897302),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+5],5,-701558691),f,r,d[n+10],9,38016083),m,f,d[n+15],14,-660478335),i,m,d[n+4],20,-405537848),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+9],5,568446438),f,r,d[n+14],9,-1019803690),m,f,d[n+3],14,-187363961),i,m,d[n+8],20,1163531501),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+13],5,-1444681467),f,r,d[n+2],9,-51403784),m,f,d[n+7],14,1735328473),i,m,d[n+12],20,-1926607734),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+5],4,-378558),f,r,d[n+8],11,-2022574463),m,f,d[n+11],16,1839030562),i,m,d[n+14],23,-35309556),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+1],4,-1530992060),f,r,d[n+4],11,1272893353),m,f,d[n+7],16,-155497632),i,m,d[n+10],23,-1094730640),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+13],4,681279174),f,r,d[n+0],11,-358537222),m,f,d[n+3],16,-722521979),i,m,d[n+6],23,76029189),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+9],4,-640364487),f,r,d[n+12],11,-421815835),m,f,d[n+15],16,530742520),i,m,d[n+2],23,-995338651),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+0],6,-198630844),f,r,d[n+7],10,1126891415),m,f,d[n+14],15,-1416354905),i,m,d[n+5],21,-57434055),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+12],6,1700485571),f,r,d[n+3],10,-1894986606),m,f,d[n+10],15,-1051523),i,m,d[n+1],21,-2054922799),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+8],6,1873313359),f,r,d[n+15],10,-30611744),m,f,d[n+6],15,-1560198380),i,m,d[n+13],21,1309151649),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+4],6,-145523070),f,r,d[n+11],10,-1120210379),m,f,d[n+2],15,718787259),i,m,d[n+9],21,-343485551),m=safe_add(m,h),f=safe_add(f,t),r=safe_add(r,g),i=safe_add(i,e)}return Array(m,f,r,i)}function md5_cmn(d,_,m,f,r,i){return safe_add(bit_rol(safe_add(safe_add(_,d),safe_add(f,i)),r),m)}function md5_ff(d,_,m,f,r,i,n){return md5_cmn(_&m|~_&f,d,_,r,i,n)}function md5_gg(d,_,m,f,r,i,n){return md5_cmn(_&f|m&~f,d,_,r,i,n)}function md5_hh(d,_,m,f,r,i,n){return md5_cmn(_^m^f,d,_,r,i,n)}function md5_ii(d,_,m,f,r,i,n){return md5_cmn(m^(_|~f),d,_,r,i,n)}function safe_add(d,_){var m=(65535&d)+(65535&_);return(d>>16)+(_>>16)+(m>>16)<<16|65535&m}function bit_rol(d,_){return d<<_|d>>>32-_}
+        var value = document.getElementById("webflag-3").value;
+        var result = MD5(value.replace(/ /g,''));
+        if (result == "b6bc358df010e8a4a458f23b71146c24"){
+            alert("Correct flag :D");
+        }
+        else{
+            alert("Wrong flag!!");
+        }
+    }
+    ////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////
+    // BOX 4
+    var modal = document.getElementById("web-chall-4");
+    var btn = document.getElementById("webbox4");
+    var span = document.getElementById("x-4");
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    // FLAG CHECK -4
+    function web_flagcheck_4(){
+        var MD5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLowerCase()};function M(d){for(var _,m="0123456789ABCDEF",f="",r=0;r<d.length;r++)_=d.charCodeAt(r),f+=m.charAt(_>>>4&15)+m.charAt(15&_);return f}function X(d){for(var _=Array(d.length>>2),m=0;m<_.length;m++)_[m]=0;for(m=0;m<8*d.length;m+=8)_[m>>5]|=(255&d.charCodeAt(m/8))<<m%32;return _}function V(d){for(var _="",m=0;m<32*d.length;m+=8)_+=String.fromCharCode(d[m>>5]>>>m%32&255);return _}function Y(d,_){d[_>>5]|=128<<_%32,d[14+(_+64>>>9<<4)]=_;for(var m=1732584193,f=-271733879,r=-1732584194,i=271733878,n=0;n<d.length;n+=16){var h=m,t=f,g=r,e=i;f=md5_ii(f=md5_ii(f=md5_ii(f=md5_ii(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_ff(f=md5_ff(f=md5_ff(f=md5_ff(f,r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+0],7,-680876936),f,r,d[n+1],12,-389564586),m,f,d[n+2],17,606105819),i,m,d[n+3],22,-1044525330),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+4],7,-176418897),f,r,d[n+5],12,1200080426),m,f,d[n+6],17,-1473231341),i,m,d[n+7],22,-45705983),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+8],7,1770035416),f,r,d[n+9],12,-1958414417),m,f,d[n+10],17,-42063),i,m,d[n+11],22,-1990404162),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+12],7,1804603682),f,r,d[n+13],12,-40341101),m,f,d[n+14],17,-1502002290),i,m,d[n+15],22,1236535329),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+1],5,-165796510),f,r,d[n+6],9,-1069501632),m,f,d[n+11],14,643717713),i,m,d[n+0],20,-373897302),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+5],5,-701558691),f,r,d[n+10],9,38016083),m,f,d[n+15],14,-660478335),i,m,d[n+4],20,-405537848),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+9],5,568446438),f,r,d[n+14],9,-1019803690),m,f,d[n+3],14,-187363961),i,m,d[n+8],20,1163531501),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+13],5,-1444681467),f,r,d[n+2],9,-51403784),m,f,d[n+7],14,1735328473),i,m,d[n+12],20,-1926607734),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+5],4,-378558),f,r,d[n+8],11,-2022574463),m,f,d[n+11],16,1839030562),i,m,d[n+14],23,-35309556),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+1],4,-1530992060),f,r,d[n+4],11,1272893353),m,f,d[n+7],16,-155497632),i,m,d[n+10],23,-1094730640),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+13],4,681279174),f,r,d[n+0],11,-358537222),m,f,d[n+3],16,-722521979),i,m,d[n+6],23,76029189),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+9],4,-640364487),f,r,d[n+12],11,-421815835),m,f,d[n+15],16,530742520),i,m,d[n+2],23,-995338651),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+0],6,-198630844),f,r,d[n+7],10,1126891415),m,f,d[n+14],15,-1416354905),i,m,d[n+5],21,-57434055),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+12],6,1700485571),f,r,d[n+3],10,-1894986606),m,f,d[n+10],15,-1051523),i,m,d[n+1],21,-2054922799),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+8],6,1873313359),f,r,d[n+15],10,-30611744),m,f,d[n+6],15,-1560198380),i,m,d[n+13],21,1309151649),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+4],6,-145523070),f,r,d[n+11],10,-1120210379),m,f,d[n+2],15,718787259),i,m,d[n+9],21,-343485551),m=safe_add(m,h),f=safe_add(f,t),r=safe_add(r,g),i=safe_add(i,e)}return Array(m,f,r,i)}function md5_cmn(d,_,m,f,r,i){return safe_add(bit_rol(safe_add(safe_add(_,d),safe_add(f,i)),r),m)}function md5_ff(d,_,m,f,r,i,n){return md5_cmn(_&m|~_&f,d,_,r,i,n)}function md5_gg(d,_,m,f,r,i,n){return md5_cmn(_&f|m&~f,d,_,r,i,n)}function md5_hh(d,_,m,f,r,i,n){return md5_cmn(_^m^f,d,_,r,i,n)}function md5_ii(d,_,m,f,r,i,n){return md5_cmn(m^(_|~f),d,_,r,i,n)}function safe_add(d,_){var m=(65535&d)+(65535&_);return(d>>16)+(_>>16)+(m>>16)<<16|65535&m}function bit_rol(d,_){return d<<_|d>>>32-_}
+        var value = document.getElementById("webflag-4").value;
+        var result = MD5(value.replace(/ /g,''));
+        if (result == "b6bc358df010e8a4a458f23b71146c24"){
+            alert("Correct flag :D");
+        }
+        else{
+            alert("Wrong flag!!");
+        }
+    }
+    ////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////
+    // BOX 5
+    var modal = document.getElementById("web-chall-5");
+    var btn = document.getElementById("webbox5");
+    var span = document.getElementById("x-5");
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    // FLAG CHECK -5
+    function web_flagcheck_5(){
+        var MD5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLowerCase()};function M(d){for(var _,m="0123456789ABCDEF",f="",r=0;r<d.length;r++)_=d.charCodeAt(r),f+=m.charAt(_>>>4&15)+m.charAt(15&_);return f}function X(d){for(var _=Array(d.length>>2),m=0;m<_.length;m++)_[m]=0;for(m=0;m<8*d.length;m+=8)_[m>>5]|=(255&d.charCodeAt(m/8))<<m%32;return _}function V(d){for(var _="",m=0;m<32*d.length;m+=8)_+=String.fromCharCode(d[m>>5]>>>m%32&255);return _}function Y(d,_){d[_>>5]|=128<<_%32,d[14+(_+64>>>9<<4)]=_;for(var m=1732584193,f=-271733879,r=-1732584194,i=271733878,n=0;n<d.length;n+=16){var h=m,t=f,g=r,e=i;f=md5_ii(f=md5_ii(f=md5_ii(f=md5_ii(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_ff(f=md5_ff(f=md5_ff(f=md5_ff(f,r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+0],7,-680876936),f,r,d[n+1],12,-389564586),m,f,d[n+2],17,606105819),i,m,d[n+3],22,-1044525330),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+4],7,-176418897),f,r,d[n+5],12,1200080426),m,f,d[n+6],17,-1473231341),i,m,d[n+7],22,-45705983),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+8],7,1770035416),f,r,d[n+9],12,-1958414417),m,f,d[n+10],17,-42063),i,m,d[n+11],22,-1990404162),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+12],7,1804603682),f,r,d[n+13],12,-40341101),m,f,d[n+14],17,-1502002290),i,m,d[n+15],22,1236535329),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+1],5,-165796510),f,r,d[n+6],9,-1069501632),m,f,d[n+11],14,643717713),i,m,d[n+0],20,-373897302),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+5],5,-701558691),f,r,d[n+10],9,38016083),m,f,d[n+15],14,-660478335),i,m,d[n+4],20,-405537848),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+9],5,568446438),f,r,d[n+14],9,-1019803690),m,f,d[n+3],14,-187363961),i,m,d[n+8],20,1163531501),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+13],5,-1444681467),f,r,d[n+2],9,-51403784),m,f,d[n+7],14,1735328473),i,m,d[n+12],20,-1926607734),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+5],4,-378558),f,r,d[n+8],11,-2022574463),m,f,d[n+11],16,1839030562),i,m,d[n+14],23,-35309556),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+1],4,-1530992060),f,r,d[n+4],11,1272893353),m,f,d[n+7],16,-155497632),i,m,d[n+10],23,-1094730640),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+13],4,681279174),f,r,d[n+0],11,-358537222),m,f,d[n+3],16,-722521979),i,m,d[n+6],23,76029189),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+9],4,-640364487),f,r,d[n+12],11,-421815835),m,f,d[n+15],16,530742520),i,m,d[n+2],23,-995338651),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+0],6,-198630844),f,r,d[n+7],10,1126891415),m,f,d[n+14],15,-1416354905),i,m,d[n+5],21,-57434055),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+12],6,1700485571),f,r,d[n+3],10,-1894986606),m,f,d[n+10],15,-1051523),i,m,d[n+1],21,-2054922799),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+8],6,1873313359),f,r,d[n+15],10,-30611744),m,f,d[n+6],15,-1560198380),i,m,d[n+13],21,1309151649),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+4],6,-145523070),f,r,d[n+11],10,-1120210379),m,f,d[n+2],15,718787259),i,m,d[n+9],21,-343485551),m=safe_add(m,h),f=safe_add(f,t),r=safe_add(r,g),i=safe_add(i,e)}return Array(m,f,r,i)}function md5_cmn(d,_,m,f,r,i){return safe_add(bit_rol(safe_add(safe_add(_,d),safe_add(f,i)),r),m)}function md5_ff(d,_,m,f,r,i,n){return md5_cmn(_&m|~_&f,d,_,r,i,n)}function md5_gg(d,_,m,f,r,i,n){return md5_cmn(_&f|m&~f,d,_,r,i,n)}function md5_hh(d,_,m,f,r,i,n){return md5_cmn(_^m^f,d,_,r,i,n)}function md5_ii(d,_,m,f,r,i,n){return md5_cmn(m^(_|~f),d,_,r,i,n)}function safe_add(d,_){var m=(65535&d)+(65535&_);return(d>>16)+(_>>16)+(m>>16)<<16|65535&m}function bit_rol(d,_){return d<<_|d>>>32-_}
+        var value = document.getElementById("webflag-5").value;
+        var result = MD5(value.replace(/ /g,''));
+        if (result == "b6bc358df010e8a4a458f23b71146c24"){
+            alert("Correct flag :D");
+        }
+        else{
+            alert("Wrong flag!!");
+        }
+    }
+    ////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////
+    // BOX 6
+    var modal = document.getElementById("web-chall-6");
+    var btn = document.getElementById("webbox6");
+    var span = document.getElementById("x-6");
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    // FLAG CHECK -6
+    function web_flagcheck_6(){
+        var MD5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLowerCase()};function M(d){for(var _,m="0123456789ABCDEF",f="",r=0;r<d.length;r++)_=d.charCodeAt(r),f+=m.charAt(_>>>4&15)+m.charAt(15&_);return f}function X(d){for(var _=Array(d.length>>2),m=0;m<_.length;m++)_[m]=0;for(m=0;m<8*d.length;m+=8)_[m>>5]|=(255&d.charCodeAt(m/8))<<m%32;return _}function V(d){for(var _="",m=0;m<32*d.length;m+=8)_+=String.fromCharCode(d[m>>5]>>>m%32&255);return _}function Y(d,_){d[_>>5]|=128<<_%32,d[14+(_+64>>>9<<4)]=_;for(var m=1732584193,f=-271733879,r=-1732584194,i=271733878,n=0;n<d.length;n+=16){var h=m,t=f,g=r,e=i;f=md5_ii(f=md5_ii(f=md5_ii(f=md5_ii(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_ff(f=md5_ff(f=md5_ff(f=md5_ff(f,r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+0],7,-680876936),f,r,d[n+1],12,-389564586),m,f,d[n+2],17,606105819),i,m,d[n+3],22,-1044525330),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+4],7,-176418897),f,r,d[n+5],12,1200080426),m,f,d[n+6],17,-1473231341),i,m,d[n+7],22,-45705983),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+8],7,1770035416),f,r,d[n+9],12,-1958414417),m,f,d[n+10],17,-42063),i,m,d[n+11],22,-1990404162),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+12],7,1804603682),f,r,d[n+13],12,-40341101),m,f,d[n+14],17,-1502002290),i,m,d[n+15],22,1236535329),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+1],5,-165796510),f,r,d[n+6],9,-1069501632),m,f,d[n+11],14,643717713),i,m,d[n+0],20,-373897302),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+5],5,-701558691),f,r,d[n+10],9,38016083),m,f,d[n+15],14,-660478335),i,m,d[n+4],20,-405537848),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+9],5,568446438),f,r,d[n+14],9,-1019803690),m,f,d[n+3],14,-187363961),i,m,d[n+8],20,1163531501),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+13],5,-1444681467),f,r,d[n+2],9,-51403784),m,f,d[n+7],14,1735328473),i,m,d[n+12],20,-1926607734),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+5],4,-378558),f,r,d[n+8],11,-2022574463),m,f,d[n+11],16,1839030562),i,m,d[n+14],23,-35309556),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+1],4,-1530992060),f,r,d[n+4],11,1272893353),m,f,d[n+7],16,-155497632),i,m,d[n+10],23,-1094730640),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+13],4,681279174),f,r,d[n+0],11,-358537222),m,f,d[n+3],16,-722521979),i,m,d[n+6],23,76029189),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+9],4,-640364487),f,r,d[n+12],11,-421815835),m,f,d[n+15],16,530742520),i,m,d[n+2],23,-995338651),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+0],6,-198630844),f,r,d[n+7],10,1126891415),m,f,d[n+14],15,-1416354905),i,m,d[n+5],21,-57434055),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+12],6,1700485571),f,r,d[n+3],10,-1894986606),m,f,d[n+10],15,-1051523),i,m,d[n+1],21,-2054922799),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+8],6,1873313359),f,r,d[n+15],10,-30611744),m,f,d[n+6],15,-1560198380),i,m,d[n+13],21,1309151649),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+4],6,-145523070),f,r,d[n+11],10,-1120210379),m,f,d[n+2],15,718787259),i,m,d[n+9],21,-343485551),m=safe_add(m,h),f=safe_add(f,t),r=safe_add(r,g),i=safe_add(i,e)}return Array(m,f,r,i)}function md5_cmn(d,_,m,f,r,i){return safe_add(bit_rol(safe_add(safe_add(_,d),safe_add(f,i)),r),m)}function md5_ff(d,_,m,f,r,i,n){return md5_cmn(_&m|~_&f,d,_,r,i,n)}function md5_gg(d,_,m,f,r,i,n){return md5_cmn(_&f|m&~f,d,_,r,i,n)}function md5_hh(d,_,m,f,r,i,n){return md5_cmn(_^m^f,d,_,r,i,n)}function md5_ii(d,_,m,f,r,i,n){return md5_cmn(m^(_|~f),d,_,r,i,n)}function safe_add(d,_){var m=(65535&d)+(65535&_);return(d>>16)+(_>>16)+(m>>16)<<16|65535&m}function bit_rol(d,_){return d<<_|d>>>32-_}
+        var value = document.getElementById("webflag-6").value;
+        var result = MD5(value.replace(/ /g,''));
+        if (result == "b6bc358df010e8a4a458f23b71146c24"){
+            alert("Correct flag :D");
+        }
+        else{
+            alert("Wrong flag!!");
+        }
+    }
+    ////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////
+    // BOX 7
+    var modal = document.getElementById("web-chall-7");
+    var btn = document.getElementById("webbox7");
+    var span = document.getElementById("x-7");
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    // FLAG CHECK -7
+    function web_flagcheck_7(){
+        var MD5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLowerCase()};function M(d){for(var _,m="0123456789ABCDEF",f="",r=0;r<d.length;r++)_=d.charCodeAt(r),f+=m.charAt(_>>>4&15)+m.charAt(15&_);return f}function X(d){for(var _=Array(d.length>>2),m=0;m<_.length;m++)_[m]=0;for(m=0;m<8*d.length;m+=8)_[m>>5]|=(255&d.charCodeAt(m/8))<<m%32;return _}function V(d){for(var _="",m=0;m<32*d.length;m+=8)_+=String.fromCharCode(d[m>>5]>>>m%32&255);return _}function Y(d,_){d[_>>5]|=128<<_%32,d[14+(_+64>>>9<<4)]=_;for(var m=1732584193,f=-271733879,r=-1732584194,i=271733878,n=0;n<d.length;n+=16){var h=m,t=f,g=r,e=i;f=md5_ii(f=md5_ii(f=md5_ii(f=md5_ii(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_ff(f=md5_ff(f=md5_ff(f=md5_ff(f,r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+0],7,-680876936),f,r,d[n+1],12,-389564586),m,f,d[n+2],17,606105819),i,m,d[n+3],22,-1044525330),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+4],7,-176418897),f,r,d[n+5],12,1200080426),m,f,d[n+6],17,-1473231341),i,m,d[n+7],22,-45705983),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+8],7,1770035416),f,r,d[n+9],12,-1958414417),m,f,d[n+10],17,-42063),i,m,d[n+11],22,-1990404162),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+12],7,1804603682),f,r,d[n+13],12,-40341101),m,f,d[n+14],17,-1502002290),i,m,d[n+15],22,1236535329),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+1],5,-165796510),f,r,d[n+6],9,-1069501632),m,f,d[n+11],14,643717713),i,m,d[n+0],20,-373897302),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+5],5,-701558691),f,r,d[n+10],9,38016083),m,f,d[n+15],14,-660478335),i,m,d[n+4],20,-405537848),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+9],5,568446438),f,r,d[n+14],9,-1019803690),m,f,d[n+3],14,-187363961),i,m,d[n+8],20,1163531501),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+13],5,-1444681467),f,r,d[n+2],9,-51403784),m,f,d[n+7],14,1735328473),i,m,d[n+12],20,-1926607734),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+5],4,-378558),f,r,d[n+8],11,-2022574463),m,f,d[n+11],16,1839030562),i,m,d[n+14],23,-35309556),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+1],4,-1530992060),f,r,d[n+4],11,1272893353),m,f,d[n+7],16,-155497632),i,m,d[n+10],23,-1094730640),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+13],4,681279174),f,r,d[n+0],11,-358537222),m,f,d[n+3],16,-722521979),i,m,d[n+6],23,76029189),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+9],4,-640364487),f,r,d[n+12],11,-421815835),m,f,d[n+15],16,530742520),i,m,d[n+2],23,-995338651),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+0],6,-198630844),f,r,d[n+7],10,1126891415),m,f,d[n+14],15,-1416354905),i,m,d[n+5],21,-57434055),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+12],6,1700485571),f,r,d[n+3],10,-1894986606),m,f,d[n+10],15,-1051523),i,m,d[n+1],21,-2054922799),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+8],6,1873313359),f,r,d[n+15],10,-30611744),m,f,d[n+6],15,-1560198380),i,m,d[n+13],21,1309151649),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+4],6,-145523070),f,r,d[n+11],10,-1120210379),m,f,d[n+2],15,718787259),i,m,d[n+9],21,-343485551),m=safe_add(m,h),f=safe_add(f,t),r=safe_add(r,g),i=safe_add(i,e)}return Array(m,f,r,i)}function md5_cmn(d,_,m,f,r,i){return safe_add(bit_rol(safe_add(safe_add(_,d),safe_add(f,i)),r),m)}function md5_ff(d,_,m,f,r,i,n){return md5_cmn(_&m|~_&f,d,_,r,i,n)}function md5_gg(d,_,m,f,r,i,n){return md5_cmn(_&f|m&~f,d,_,r,i,n)}function md5_hh(d,_,m,f,r,i,n){return md5_cmn(_^m^f,d,_,r,i,n)}function md5_ii(d,_,m,f,r,i,n){return md5_cmn(m^(_|~f),d,_,r,i,n)}function safe_add(d,_){var m=(65535&d)+(65535&_);return(d>>16)+(_>>16)+(m>>16)<<16|65535&m}function bit_rol(d,_){return d<<_|d>>>32-_}
+        var value = document.getElementById("webflag-7").value;
+        var result = MD5(value.replace(/ /g,''));
+        if (result == "b6bc358df010e8a4a458f23b71146c24"){
+            alert("Correct flag :D");
+        }
+        else{
+            alert("Wrong flag!!");
+        }
+    }
+    ////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////
+    // BOX 8
+    var modal = document.getElementById("web-chall-8");
+    var btn = document.getElementById("webbox8");
+    var span = document.getElementById("x-8");
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    // FLAG CHECK -8
+    function web_flagcheck_8(){
+        var MD5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLowerCase()};function M(d){for(var _,m="0123456789ABCDEF",f="",r=0;r<d.length;r++)_=d.charCodeAt(r),f+=m.charAt(_>>>4&15)+m.charAt(15&_);return f}function X(d){for(var _=Array(d.length>>2),m=0;m<_.length;m++)_[m]=0;for(m=0;m<8*d.length;m+=8)_[m>>5]|=(255&d.charCodeAt(m/8))<<m%32;return _}function V(d){for(var _="",m=0;m<32*d.length;m+=8)_+=String.fromCharCode(d[m>>5]>>>m%32&255);return _}function Y(d,_){d[_>>5]|=128<<_%32,d[14+(_+64>>>9<<4)]=_;for(var m=1732584193,f=-271733879,r=-1732584194,i=271733878,n=0;n<d.length;n+=16){var h=m,t=f,g=r,e=i;f=md5_ii(f=md5_ii(f=md5_ii(f=md5_ii(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_ff(f=md5_ff(f=md5_ff(f=md5_ff(f,r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+0],7,-680876936),f,r,d[n+1],12,-389564586),m,f,d[n+2],17,606105819),i,m,d[n+3],22,-1044525330),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+4],7,-176418897),f,r,d[n+5],12,1200080426),m,f,d[n+6],17,-1473231341),i,m,d[n+7],22,-45705983),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+8],7,1770035416),f,r,d[n+9],12,-1958414417),m,f,d[n+10],17,-42063),i,m,d[n+11],22,-1990404162),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+12],7,1804603682),f,r,d[n+13],12,-40341101),m,f,d[n+14],17,-1502002290),i,m,d[n+15],22,1236535329),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+1],5,-165796510),f,r,d[n+6],9,-1069501632),m,f,d[n+11],14,643717713),i,m,d[n+0],20,-373897302),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+5],5,-701558691),f,r,d[n+10],9,38016083),m,f,d[n+15],14,-660478335),i,m,d[n+4],20,-405537848),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+9],5,568446438),f,r,d[n+14],9,-1019803690),m,f,d[n+3],14,-187363961),i,m,d[n+8],20,1163531501),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+13],5,-1444681467),f,r,d[n+2],9,-51403784),m,f,d[n+7],14,1735328473),i,m,d[n+12],20,-1926607734),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+5],4,-378558),f,r,d[n+8],11,-2022574463),m,f,d[n+11],16,1839030562),i,m,d[n+14],23,-35309556),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+1],4,-1530992060),f,r,d[n+4],11,1272893353),m,f,d[n+7],16,-155497632),i,m,d[n+10],23,-1094730640),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+13],4,681279174),f,r,d[n+0],11,-358537222),m,f,d[n+3],16,-722521979),i,m,d[n+6],23,76029189),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+9],4,-640364487),f,r,d[n+12],11,-421815835),m,f,d[n+15],16,530742520),i,m,d[n+2],23,-995338651),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+0],6,-198630844),f,r,d[n+7],10,1126891415),m,f,d[n+14],15,-1416354905),i,m,d[n+5],21,-57434055),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+12],6,1700485571),f,r,d[n+3],10,-1894986606),m,f,d[n+10],15,-1051523),i,m,d[n+1],21,-2054922799),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+8],6,1873313359),f,r,d[n+15],10,-30611744),m,f,d[n+6],15,-1560198380),i,m,d[n+13],21,1309151649),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+4],6,-145523070),f,r,d[n+11],10,-1120210379),m,f,d[n+2],15,718787259),i,m,d[n+9],21,-343485551),m=safe_add(m,h),f=safe_add(f,t),r=safe_add(r,g),i=safe_add(i,e)}return Array(m,f,r,i)}function md5_cmn(d,_,m,f,r,i){return safe_add(bit_rol(safe_add(safe_add(_,d),safe_add(f,i)),r),m)}function md5_ff(d,_,m,f,r,i,n){return md5_cmn(_&m|~_&f,d,_,r,i,n)}function md5_gg(d,_,m,f,r,i,n){return md5_cmn(_&f|m&~f,d,_,r,i,n)}function md5_hh(d,_,m,f,r,i,n){return md5_cmn(_^m^f,d,_,r,i,n)}function md5_ii(d,_,m,f,r,i,n){return md5_cmn(m^(_|~f),d,_,r,i,n)}function safe_add(d,_){var m=(65535&d)+(65535&_);return(d>>16)+(_>>16)+(m>>16)<<16|65535&m}function bit_rol(d,_){return d<<_|d>>>32-_}
+        var value = document.getElementById("webflag-8").value;
+        var result = MD5(value.replace(/ /g,''));
+        if (result == "b6bc358df010e8a4a458f23b71146c24"){
+            alert("Correct flag :D");
+        }
+        else{
+            alert("Wrong flag!!");
+        }
+    }
+    ////////////////////////////////////////////////////
+    </script>
 </html>
