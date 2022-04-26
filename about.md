@@ -1,5 +1,5 @@
 ---
-title: Colophon
+title: About Me
 permalink: /about/
 layout: page
 excerpt: Hello awesome peoples👋 I'm Jopraveen, I'm interested in learning low level stuffs
