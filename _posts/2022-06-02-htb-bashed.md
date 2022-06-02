@@ -4,9 +4,9 @@ title: HTB [BASHED] [LINUX]
 
 date: 2022-01-18 15:23:05 +0200
 
-categories: [HTB]
+categories: [Build vulnerable VMs,Build script]
 
-tags: [HACKTHEBOX MACHINES] 
+tags: vulnerable_VM
 
 ---
 
@@ -27,20 +27,23 @@ PORT   STATE SERVICE VERSION
 **Directory bruteforcing:**
 
 ![](https://i.imgur.com/i6hVUm2.png)
-- /dev seems interesting
+- /dev seems interesting to me
+
 
 ![](https://i.imgur.com/8zALkwd.png)
 - Let's open the first one
 
+
 ![](https://i.imgur.com/jR9waYG.png)
 - Here we can able to run commands, but we can't able to get a reverse shell
-- So let's upload a php rev shell and there's a /uploads folder, we can access that file there
+- So let's try to upload a php reverse shell to /uploads folder, so we can get a shell by triggering it
 
 **reverse shell:**
 
 ![](https://i.imgur.com/m6LVy8r.png)
 
-- Here we can run any commands as **scriptmanager**
+- Here we can able to run any command as **scriptmanager**
+
 
 **priv esc:**
 
@@ -48,18 +51,22 @@ PORT   STATE SERVICE VERSION
 
 - Now time for linpeas
 
+
 ![](https://i.imgur.com/smyz31j.png)
-- Let's see  `/scripts/test.txt` this file
+- Let's see  `/scripts/test.txt`  file
+
 
 ![](https://i.imgur.com/TYEl6TK.png)
 - This file is owned by root
 - Also there's a test.py script
+
 
 ![](https://i.imgur.com/T62rnnA.png)
 - It just opens this file and writes `testing 123!`
 - We have the permission to modify this script
 - Ig this script runs as root every minute
 - Let's try to read root.txt and store its contents in a new file 
+
 
 ```python
 r = open("/root/root.txt", "r").read()
