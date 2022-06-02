@@ -6,7 +6,7 @@ date: 2022-01-20 07:39:05 +0200
 
 categories: [Build vulnerable VMs,Writeup for Twenty22]
 
-tags: CTFtime
+tags: vulnerable_VM
 
 ---
 
