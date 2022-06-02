@@ -6,7 +6,7 @@ date: 2022-01-18 15:23:05 +0200
 
 categories: [Build vulnerable VMs,Build script]
 
-tags: vagrant VMs buildscript
+tags: vulnerable_VM
 
 ---
 
