@@ -6,7 +6,7 @@ date: 2022-01-20 01:27:05 +0200
 
 categories: [Build vulnerable VMs,First Vulnerble VM]
 
-tags: vagrant VMs FirstVM
+tags: vulnerable_VM
 
 image: "https://i.imgur.com/HkMd3Hq.png"
 
