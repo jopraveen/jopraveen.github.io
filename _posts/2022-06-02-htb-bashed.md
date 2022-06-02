@@ -4,9 +4,9 @@ title: HTB [BASHED] [LINUX]
 
 date: 2022-06-02 15:23:05 +0200
 
-categories: [Build vulnerable VMs,Build script]
+categories: [htb]
 
-tags: vulnerable_VM
+tags: [HACKTHEBOX MACHINES]
 
 ---
 
