@@ -3,7 +3,7 @@ title: 1337UP CTF pwn-easyregister
 author: jopraveen
 date: 2022-03-13
 categories: [1337UP]
-tags: [pwn]
+tags: [CTFtime]
 ---
 
 ## Easy Register
