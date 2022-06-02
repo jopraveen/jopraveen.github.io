@@ -6,7 +6,7 @@ date: 2022-01-18 12:23:05 +0200
 
 categories: [Build vulnerable VMs,Vagrant Setup]
 
-tags: vagrant VMs
+tags: vulnerable_VM
 
 image: "https://i.imgur.com/VDdalHk.png"
 
