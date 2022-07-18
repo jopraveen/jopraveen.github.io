@@ -4,7 +4,7 @@ title: pyprison [IMAGINARY CTF] [MISC]
 
 date: 2022-07-18 11:28:05 +0200
 
-categories: [pwn,htb]
+categories: [python,ctftime]
 
 tags: [CTFTIME]
 
