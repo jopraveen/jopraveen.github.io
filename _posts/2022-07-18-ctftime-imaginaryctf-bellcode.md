@@ -312,7 +312,7 @@ stos   BYTE PTR es:[rdi], al
 - Thank you for reading my blog post, I hope you enjoyed it. 
 - See you soon in my next one, Cheers
 
-![](https://tenor.com/view/cat-cute-animals-bye-bye-gif-13883217)
+![](https://github.com/jopraveen/jopraveen/raw/main/some-gifs/cat-cute.gif)
 
 Here is the full exploit script: [exploit link](https://github.com/jopraveen/exploit-development/blob/main/CTF/imaginaryCTF2022/pwn/bellcode/solve.py)
 
