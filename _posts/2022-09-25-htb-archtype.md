@@ -126,7 +126,7 @@ that's `mssqlclient.py`
 
 ![](https://i.imgur.com/Iq7zVka.png)
 - you need to `enable_xp_cmdshell` in order to use it  
-- you can find more info about mssql enumeration[here](https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server)
+- you can find more info about mssql enumeration [here](https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server)
 
 
 
