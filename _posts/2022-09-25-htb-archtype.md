@@ -2,7 +2,7 @@
 
 title: HTB [Archtype]
 
-date: 2022-09-25 11:28:05 +0200
+date: 2022-09-25 01:28:05 +0200
 
 categories: [windows,smb,mssql,winpeas]
 
