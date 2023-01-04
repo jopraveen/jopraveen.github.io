@@ -61,6 +61,10 @@ layout: compress
             <span hidden itemprop="image">{{ page.image }}</span>
             <span hidden itemprop="mainEntityOfPage">{{ page.excerpt }}</span>
           </div>
+          <br>
+          {%- for tag in page.categories -%}
+        <span class="bg-blue-100 text-blue-800 text-s font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">#{{tag}}</span>
+        {%- endfor -%}
           {% endif %}
         </header>
 
