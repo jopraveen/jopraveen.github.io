@@ -1,12 +1,12 @@
 ---
-title: Tags
+title: Categories
 permalink: /tags/
 layout: page
 excerpt: Sorted article by tags.
 ---
 
 <div class="archive-tags">
-  <a class="tag-item" href="#">all</a>
+  <!-- <a class="tag-item" href="#">all</a> -->
   {%- for tag in site.tags -%} 
     {% capture name %}{{ tag | first }}{% endcapture %}
     <a class="tag-item" href="#{{name}}">{{ name }}</a> 

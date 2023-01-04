@@ -8,6 +8,7 @@ categories: [htb]
 
 tags: [HACKTHEBOX MACHINES]
 
+excerpt: Write up for the machine "Bashed" from HackTheBox
 ---
 
 ## bashed 

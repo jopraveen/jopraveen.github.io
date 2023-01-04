@@ -59,6 +59,7 @@ jekyll_compose:
 
 # Homepage limit posts
 number_of_posts: 5
+excerpt_separator: <!--more-->
 
 # Build settings
 # theme: klise
@@ -88,3 +89,4 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-postfiles
+  - jekyll-spaceship

@@ -1,13 +1,9 @@
 ---
-
 title: HTB [Archtype]
-
 date: 2022-09-25 01:28:05 +0200
-
 categories: [windows,smb,mssql,winpeas]
-
 tags: [HTB Starting point]
-
+excerpt: This is a hackthebox starting point machine that deals with SMB, MSSQL protocols
 ---
 
 ## Archtype

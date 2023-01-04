@@ -1,13 +1,9 @@
 ---
-
 title: bellcode [IMAGINARY CTF] [PWN]
-
 date: 2022-07-18 11:28:05 +0200
-
 categories: [shellcode,pwn]
-
 tags: [CTFTIME]
-
+excerpt: Write up for the challenge "Bellcode" from Imaginary CTF
 ---
 
 ## Bellcode - ImaginaryCTF

@@ -10,6 +10,7 @@ tags: vulnerable_VM
 
 image: "https://i.imgur.com/HkMd3Hq.png"
 
+excerpt: This blog post covers and helps you to create your Vulnerable VM
 ---
 
 ### Building our first vulnerable VM

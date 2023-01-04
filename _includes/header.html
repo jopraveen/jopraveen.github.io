@@ -161,4 +161,31 @@
   <meta name="theme-color" content="#2c2c2c" />
 
   <link rel="stylesheet" href="/assets/css/style.css" />
+  
+  <!-- custom CDNs -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
+  <!-- [TAILWIND CSS] https://tailwindcss.com/docs/installation/play-cdn -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Config file -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <!-- flow bite -->
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.css" />
+  <script src="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.js"></script>
+
+
+
+
 </head>

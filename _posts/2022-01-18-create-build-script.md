@@ -7,7 +7,7 @@ date: 2022-01-18 15:23:05 +0200
 categories: [Build vulnerable VMs,Build script]
 
 tags: vulnerable_VM
-
+excerpt: We're going to create a build script to automate the creation of the Vulnerable VM
 ---
 
 ## Status

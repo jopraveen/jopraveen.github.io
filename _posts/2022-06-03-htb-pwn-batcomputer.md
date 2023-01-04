@@ -8,6 +8,7 @@ categories: [pwn,htb]
 
 tags: [Intro to Binary Exploitation]
 
+excerpt: Write up for the challenge "Bat Computer" from HackTheBox
 ---
 
 ## Bat computer

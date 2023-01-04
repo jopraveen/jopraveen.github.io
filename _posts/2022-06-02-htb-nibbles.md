@@ -8,6 +8,7 @@ categories: [htb]
 
 tags: [HACKTHEBOX MACHINES]
 
+excerpt: Write up for the machine "nibbles" from HackTheBox
 ---
 
 ![](https://i.imgur.com/TnenIMs.png)

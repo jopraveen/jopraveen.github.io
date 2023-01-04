@@ -4,6 +4,7 @@ author: jopraveen
 date: 2022-03-13
 categories: [1337UP]
 tags: [CTFtime]
+excerpt: Write up for the challenge "Easy Register" from 1337UP CTF
 ---
 
 ## Easy Register

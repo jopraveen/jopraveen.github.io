@@ -1,6 +1,6 @@
 ---
 
-title: How to install Vagrant in your operating system
+title: Install Vagrant in your operating system
 
 date: 2022-01-18 12:23:05 +0200
 
@@ -9,7 +9,7 @@ categories: [Build vulnerable VMs,Vagrant Setup]
 tags: vulnerable_VM
 
 image: "https://i.imgur.com/VDdalHk.png"
-
+excerpt: Here we're going to see how to install vagrant in Windows operating system
 ---
 
 # Vagrant

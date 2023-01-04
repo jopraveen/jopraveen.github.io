@@ -1,13 +1,9 @@
 ---
-
 title: HTB [VALENTINE] [LINUX]
-
 date: 2022-06-03 18:23:05 +0200
-
 categories: [htb]
-
 tags: [HACKTHEBOX MACHINES]
-
+excerpt: Write up for the machine "Valentine" from HackTheBox
 ---
 
 ![](https://i.imgur.com/73ZoDLC.png)

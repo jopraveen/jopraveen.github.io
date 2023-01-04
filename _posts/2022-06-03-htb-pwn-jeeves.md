@@ -1,15 +1,12 @@
 ---
-
 title: HTB [JEEVES] [PWN]
-
 date: 2022-06-03 00:28:05 +0200
-
 categories: [pwn,htb]
-
 tags: [Intro to Binary Exploitation]
-
+excerpt: Write up for the challenge "Jeeves" from HackTheBox
 ---
 
+<!--more-->
 
 ## Jeeves
 
