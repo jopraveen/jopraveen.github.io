@@ -285,7 +285,7 @@ stos   BYTE PTR es:[rdi], al
 
 > speed runnnnnnnnn 🏃
 
-- I will attach a full writeup in the ending of the writeup
+- I will attach a full exploit script in the ending of the writeup
 
 ![](https://i.imgur.com/QwH0wIz.png)
 
