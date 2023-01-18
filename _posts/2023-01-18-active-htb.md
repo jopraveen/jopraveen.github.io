@@ -106,8 +106,8 @@ GPPstillStandingStrong2k18
 
 ![](https://i.imgur.com/BWpCVqd.png)
 
-![](https://www.youtube.com/watch?v=PUyhlN-E5MU)
-
+<!--- This talk from [](https://www.youtube.com/watch?v=PUyhlN-E5MU)-->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PUyhlN-E5MU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - I'm gonna use a script called `GetUserSPNs.py` from impacket
 
