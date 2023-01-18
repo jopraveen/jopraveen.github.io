@@ -1,6 +1,6 @@
 ---
 title: HTB [Active]
-date: 2023-01-18 11:28:05 +0200
+date: 2023-01-18 00:28:05 +0200
 categories: [windows,AD]
 tags: [CTFTIME,ACTIVE DIRECTORY 101]
 excerpt: Write up for the machine "Active" from HackTheBox
