@@ -56,7 +56,7 @@ Host script results:
 |   Check 4 (port 38631/udp): CLEAN (Failed to receive data)
 |_  0/4 checks are positive: Host is CLEAN or ports are blocked
 ```
-
+<br>
 
 - It's an Active directory machine
 - No web servers are running, let's enum the smb
@@ -67,7 +67,8 @@ Host script results:
 
 ![](https://i.imgur.com/GjJEGDb.png)
 
-- [https://adsecurity.org/?p=2288](This post) from adsecurity explains about exploiting this groups policy files
+
+- [This post](https://adsecurity.org/?p=2288) from adsecurity explains about exploiting this groups policy files
 
 ```js
 ➜  active gpp-decrypt "edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ"
@@ -104,10 +105,12 @@ GPPstillStandingStrong2k18
 - Looks like the Administrator is kerberoastable
 - So let's try kerberoasting to request a ticket
 
-![](https://i.imgur.com/BWpCVqd.png)
-
+<br>
 <!--- This talk from [](https://www.youtube.com/watch?v=PUyhlN-E5MU)-->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PUyhlN-E5MU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<br>
+![](https://i.imgur.com/BWpCVqd.png)
+
 
 - I'm gonna use a script called `GetUserSPNs.py` from impacket
 
