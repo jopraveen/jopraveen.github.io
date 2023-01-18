@@ -106,7 +106,7 @@ GPPstillStandingStrong2k18
 
 ![](https://i.imgur.com/BWpCVqd.png)
 
-![](https://youtu.be/PUyhlN-E5MU)
+![](https://www.youtube.com/watch?v=PUyhlN-E5MU)
 
 
 - I'm gonna use a script called `GetUserSPNs.py` from impacket
