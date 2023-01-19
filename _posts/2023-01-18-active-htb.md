@@ -116,7 +116,7 @@ GPPstillStandingStrong2k18
 
 ![](https://i.imgur.com/0rYpTu9.png)
 
-- If you get this error, the most likely we need to sync our time to the machine time
+- If you get this error, then most likely we need to sync our time to the machine time
 - So run `ntpdate 10.10.10.100`
 
 ![](https://i.imgur.com/502SMxz.png)
