@@ -274,7 +274,7 @@ socat tcp-listen:135,reuseaddr,fork tcp:10.10.10.180:9999
 - If you list the running tasks you can see the machine is running teamviewer 7
 - And it's a old version
 - You can gather Windows Password using it!
-- Use thiis `post/windows/gather/credentials/teamviewer_passwords` msf module to do that
+- Use this `post/windows/gather/credentials/teamviewer_passwords` msf module to do that
 
 ![](https://i.imgur.com/uON8FZQ.png)
 
