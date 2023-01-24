@@ -87,7 +87,7 @@ Host script results:
 - Let's check NFS
 
 ```js
-➜  remote showmount -e 10.10.10.180
+➜ showmount -e 10.10.10.180
 Export list for 10.10.10.180:
 /site_backups (everyone)
 ```
@@ -95,9 +95,9 @@ Export list for 10.10.10.180:
 - I'm gonna mount this to my local
 
 ```bash
-➜  remote mkdir remote_mount
-➜  remote mount -t nfs 10.10.10.180:/ remote_mount
-➜  remote tree -a remote_mount 
+➜ mkdir remote_mount
+➜ mount -t nfs 10.10.10.180:/ remote_mount
+➜ tree -a remote_mount 
 <SNIP>
 486 directories, 1887 files
 ```
