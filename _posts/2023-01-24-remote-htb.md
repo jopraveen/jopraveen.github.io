@@ -1,7 +1,7 @@
 ---
 title: HTB [Remote]
 date: 2023-01-24 11:28:05 +0200
-categories: [windows,nfs,xslt-injection]
+categories: [windows,nfs,xslt-injection,RoguePotato]
 tags: [HACKTHEBOX MACHINES]
 excerpt: Remote is an easy machine from hackthebox that involves xslt injection in umbraco cms to get initialfoothold, and SeImpersonatePrivilege for the root
 ---
