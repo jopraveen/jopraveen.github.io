@@ -104,10 +104,10 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 ![](https://i.imgur.com/y1KiO5x.png)
 
-1) Editing the php-rev shell and starting a ncat listener
-2) Copying the rev shell to the mounted `/var/www/html/` folder
-3) Triggering the rev shell
-4) Got shell as `alex`
+- 1) Editing the php-rev shell and starting a ncat listener
+- 2) Copying the rev shell to the mounted `/var/www/html/` folder
+- 3) Triggering the rev shell
+- 4) Got shell as `alex`
 
 - Grab the **user.txt** in alex's home directory
 
@@ -133,7 +133,7 @@ ross        1593  0.1  4.9 777124 101232 ?       SLl  03:16   0:05  |       _ /u
 
 ![](https://i.imgur.com/Blw6wQT.png)
 
-- Now we can able to access these file
+- Now we can able to access these files
 - I'm going to copy these files to my local, coz mounted folders are slow
 
 ![](https://i.imgur.com/Uc2fQLj.png)
@@ -165,10 +165,10 @@ xwd -root -screen -silent -display :0 > screenshot.xwd
 
 ![](https://i.imgur.com/3Aj51hB.png)
 
-1) Sucessfully took the screenshot
-2) But we don't have convert
-3) So let's start a python server
-4) And wget it to our local
+- 1) Sucessfully took the screenshot
+- 2) But we don't have convert
+- 3) So let's start a python server
+- 4) And wget it to our local
 
 ![](https://i.imgur.com/C8S2Kmv.png)
 
