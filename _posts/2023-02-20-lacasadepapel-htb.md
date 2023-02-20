@@ -105,7 +105,7 @@ Service Info: OS: Unix
 ![](https://i.imgur.com/jUVOaaJ.jpg)
 
 - We have some certificate error, and we need to provide certificate to access this page ig
-- Looking at the nmap result again tells us that we missed `vsftpd 2.3.4`, which is vulnerable to `Backdoor Command Execution`
+- Looking at the nmap result again, tells us that we missed `vsftpd 2.3.4`, which is vulnerable to `Backdoor Command Execution`
 - We're going to exploit this manually
 
 ## INITIAL FOOTHOLD
