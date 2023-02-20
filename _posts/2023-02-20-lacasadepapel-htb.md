@@ -142,7 +142,7 @@ Service Info: OS: Unix
 
 - This is the file that contains ssl certificates
 - Let's copy this to our local
-- Before using that key we need to generate a `cert.pem` file
+- First we need to generate a `cert.pem` with this key
 
 #### Generate Certificate
 
@@ -172,7 +172,7 @@ openssl s_client -showcerts -connect 10.10.10.131:443 </dev/null 2>/dev/null | o
 
 ![](https://i.imgur.com/woGBJnw.png)
 
-- I've used `?path` parameter with `SEASON-1` value, it returned me a bunch of avi file links
+- I've used `?path` parameter with `SEASON-1` value, it returned me a bunch of `.avi` file links
 - The `file/<some encoded string>` that looks like base64
 
 ![](https://i.imgur.com/qBQSjgN.png)
@@ -187,7 +187,7 @@ openssl s_client -showcerts -connect 10.10.10.131:443 </dev/null 2>/dev/null | o
 
 ![](https://i.imgur.com/J0FazmZ.png)
 
-- We got the `id_rsa` key but it haven't worked for him
+- We got the `id_rsa` key but it haven't worked for `berlin`
 
 ![](https://i.imgur.com/IdCjxZ4.png)
 
@@ -197,17 +197,21 @@ openssl s_client -showcerts -connect 10.10.10.131:443 </dev/null 2>/dev/null | o
 
 ![](https://i.imgur.com/tsXCJRQ.png)
 
-- This process gets executed often, coz this `memcached` program is `supervisord` process it will continue to run until it is stopped or restarted
+- This process gets executed often, coz this `memcached` program is `supervisord` process it will continue to run until it is stopped or restarted (like cron)
 
 ![](https://i.imgur.com/4li3fQO.png)
 
-- If we change this we can create our memcached.ini file
+- If we change this we can create our own memcached.ini file
 - And that will get executed by root
+
+<br>
 
 ```ini
 [program:memcached]
 command = chmod u+s /bin/bash
 ```
+
+<br>
 
 ![](https://i.imgur.com/QNE83Cs.png)
 
