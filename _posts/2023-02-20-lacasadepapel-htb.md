@@ -71,7 +71,7 @@ Service Info: OS: Unix
 ```
 
 - Four ports opened, anonymous login was disabled in `FTP`
-the web server
+
 
 ### Web Enumeration
 
