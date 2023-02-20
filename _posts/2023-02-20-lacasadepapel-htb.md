@@ -1,6 +1,6 @@
 ---
 title: HTB [LaCasaDePapel]
-date: 2023-02-17 01:28:05 +0200
+date: 2023-02-20 02:28:05 +0200
 categories: [vsftpd,ssl,memcache]
 tags: [HACKTHEBOX MACHINES]
 excerpt: LaCasaDePapel is an easy hackthebox machine that involves chaning vstfpd backdoor to read a private key file and generate a new ssl cert to exploit a LFI, for root we can create memcached.ini file to execute commands as root
