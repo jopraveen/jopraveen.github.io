@@ -198,7 +198,7 @@ group:[test] rid:[0x13ed]
 - Forest name: `htb.local`
 - Computer name: `FOREST`
 - Create **users.txt** with the user names
-- Let's use `GetNPUsers.py` to see available kerberoastable users
+- Let's use `GetNPUsers.py` to see if any user has pre authentication disabled
 
 ## Initial Foothold
 
@@ -212,7 +212,13 @@ svc-alfresco  CN=Service Accounts,OU=Security Groups,DC=htb,DC=local  2023-01-19
 ```
 <br>
 
-- Looks like `svc-alfresco` is kerberoastable, let's request a ticket
+- Looks like `svc-alfresco` account is AS-Rep Roastable, because pre-authentication is disabled for him, so we can request a ticket
+
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pZSyGRjHNO4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<br>
+
+- If you want to know how this attack and `GetNPUsers.py` script is working under the hood, then I'd recommend you to watch this video
 
 <br>
 
