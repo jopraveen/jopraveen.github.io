@@ -6,7 +6,7 @@ comments: false
 ---
 
 ### `Johans Praveen` &nbsp; *a.k.a* &nbsp; `Jopraveen`
-- Security Researcher at [SecureBinary](https://securebinary.in)
+- Project Trainee at [Zoho](https://zoho.com)
 - Coordinator & CTF player at [TamilCTF](https://ctftime.org/team/128998)
 - I’m interested in learning low level stuffs.
 
