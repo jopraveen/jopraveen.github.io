@@ -1,8 +1,8 @@
 ---
 title: 1337UP Live [XSS Finder Tool]
 date: 2024-11-17 08:00:00 +0530
-categories: [linux,idor,capabilities]
-tags: [HACKTHEBOX MACHINES]
+categories: [pwn,browser,CVE-2024-0517,headless chrome,v8]
+tags: [CTFtime]
 excerpt: XSS Finder Tools is a pwn challenge from 1337 UP live CTF
 ---
 
