@@ -676,7 +676,7 @@ make_double(asm('syscall'))
 
 ![](https://raw.githubusercontent.com/jopraveen/jopraveen/refs/heads/main/imgs/Pasted%20image%2020241024004619.png)
 
-- I'm using **a2** in disasm() because the jump instruction takes 2 bytesm, we need to add that also, Hope it makes sense
+- I'm using **a2** in disasm() because the jump instruction takes 2 bytes, we need to add that also, Hope it makes sense
 
 ```js
 >>> disasm(b'\xeb\x0f')
