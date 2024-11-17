@@ -58,11 +58,11 @@ User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
 
 **References:**
 
-- https://blog.exodusintel.com/2024/01/19/google-chrome-v8-cve-2024-0517-out-of-bounds-write-code-execution/
-- https://bnovkebin.github.io/blog/CVE-2024-0517/
+- [https://blog.exodusintel.com/2024/01/19/google-chrome-v8-cve-2024-0517-out-of-bounds-write-code-execution/](https://blog.exodusintel.com/2024/01/19/google-chrome-v8-cve-2024-0517-out-of-bounds-write-code-execution/)
+- [https://bnovkebin.github.io/blog/CVE-2024-0517/](https://bnovkebin.github.io/blog/CVE-2024-0517/)
 - These two blogs will explain the v8 bug in detail
 - I'm referring the second blog by `Minkyun Sung` to recreate this exploit
-- He actually explained everything in detail, make sure to chek it out
+- He actually explained everything in detail, make sure to check it out
 
 
 ### Setup
@@ -233,7 +233,7 @@ wasm_write(wasmInstance_addr+0x48n, shell_code_addr);
 - change the offset from 0x48 to 0x50
 - After changing these things our exploit will looks like this
 
-https://gist.github.com/jopraveen/9a355adfce7e771d35c9ccf7e37ddc07
+[https://gist.github.com/jopraveen/9a355adfce7e771d35c9ccf7e37ddc07](https://gist.github.com/jopraveen/9a355adfce7e771d35c9ccf7e37ddc07)
 
 ![](https://raw.githubusercontent.com/jopraveen/jopraveen/refs/heads/main/imgs/Pasted%20image%2020241022221513.png)
 
