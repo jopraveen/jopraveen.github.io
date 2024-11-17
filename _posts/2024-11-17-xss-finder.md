@@ -740,16 +740,16 @@ make_double(asm('syscall'))
 
 **Files used:**
 
-- gen_shellcode.py : https://gist.github.com/jopraveen/6f49466fdc38af6161cd2de3ce1ac586
-- hex_to_fl.js : https://gist.github.com/jopraveen/ce5adea891f1b1149a19eb7300ccfd7c
-- convertt.py : https://gist.github.com/jopraveen/b3a55a7a3c81b89e04b70b447f71c0a8
-- rev_shell_localhost.js : https://gist.github.com/jopraveen/08a70e6015af4ccaa2cbcdadca1cf307
+- [gen_shellcode.py](https://gist.github.com/jopraveen/6f49466fdc38af6161cd2de3ce1ac586)
+- [hex_to_fl.js](https://gist.github.com/jopraveen/ce5adea891f1b1149a19eb7300ccfd7c)
+- [convertt.py](https://gist.github.com/jopraveen/b3a55a7a3c81b89e04b70b447f71c0a8)
+- [rev_shell_localhost.js](https://gist.github.com/jopraveen/08a70e6015af4ccaa2cbcdadca1cf307)
 
 - I also automated this process of exploit development, so you guys can give only IP and port, it will automatically generate the javascript exploit for you
 
 ![](https://raw.githubusercontent.com/jopraveen/jopraveen/refs/heads/main/imgs/Pasted%20image%2020241024013903.png)
 
-- auto_pwn.py : https://gist.github.com/jopraveen/792decf87421d9c4dafebf66be348b4f
+- [auto_pwn.py](https://gist.github.com/jopraveen/792decf87421d9c4dafebf66be348b4f)
 - Just update the above code in the javascript exploit, everything will work perfectly!!
 
 
