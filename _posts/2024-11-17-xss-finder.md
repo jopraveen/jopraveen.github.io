@@ -374,7 +374,7 @@ for (let i=0; i < arr.length-1; i++){
 
 ![](https://raw.githubusercontent.com/jopraveen/jopraveen/refs/heads/main/imgs/Pasted%20image%2020241023224037.png)
 
-- Now we need to conver this wat code to wasm and add that wasm code in our javascript exploit.
+- Now we need to convert this wat code to wasm and add that wasm code in our javascript exploit.
 - Use this [tool](https://github.com/WebAssembly/wabt/releases/download/1.0.36/wabt-1.0.36-ubuntu-20.04.tar.gz) and use `wat2wasm` binary to convert this code to web assembly
 
 ```python
@@ -442,7 +442,7 @@ print('])')
 ![](https://raw.githubusercontent.com/jopraveen/jopraveen/refs/heads/main/imgs/Pasted%20image%2020241023225435.png)
 
 - The exploit hits our breakpoint, now just step through the instructions and check are there any issues while jumping and placing the required values in the registers
-- It executed the `xor rax,rax` correctly but, the it jumped to another unwanted instruction next
+- It executed the `xor rax,rax` correctly but, then it jumped to another unwanted instruction next
 - Also we have another problem next
 
 ![](https://raw.githubusercontent.com/jopraveen/jopraveen/refs/heads/main/imgs/Pasted%20image%2020241023230330.png)
