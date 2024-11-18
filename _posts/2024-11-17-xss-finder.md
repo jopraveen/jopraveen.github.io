@@ -51,9 +51,9 @@ User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
 - Let's search CVE's for this version 
 - Actually there are multiple CVEs
 - Chrome versions < 120.0.6099.224 are vulnerable to this CVE
-- https://www.cvedetails.com/cve/CVE-2024-0517/
+- [https://www.cvedetails.com/cve/CVE-2024-0517/](https://www.cvedetails.com/cve/CVE-2024-0517/)
 - I will pick this one
-- https://issues.chromium.org/issues/41488920
+- [https://issues.chromium.org/issues/41488920](https://issues.chromium.org/issues/41488920)
 - Let's try to get RCE using these references
 
 **References:**
@@ -121,7 +121,7 @@ d8>
 ![](https://raw.githubusercontent.com/jopraveen/jopraveen/refs/heads/main/imgs/Pasted%20image%2020241022195622.png)
 
 - After setting up the pwndbg we can run the d8 binary like this to get an interactive shell to debug
-- Since it's a CVE and I haven't implemented any custom patches in the browser's code, you guys can refer the above two blogs for the vulnerability detail
+- Since it's a CVE and I haven't implemented any custom patches, you guys can refer the above two blogs for the vulnerability in detail
 - I'm just using the above blog to build the exploit and I will explain only the payload crafting part in detail
 
 #### Crafting exploit
