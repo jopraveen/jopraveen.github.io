@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/313943cf-b220-4897-852e-9771d4b5b6ae)---
+---
 title: PWN MMAPRO LACTF WRITEUP [TURNING CRASHES INTO CODE EXECUTION]
 date: 2025-02-12 11:28:05 +0200
 categories: [pwn,lactf,mmap]
