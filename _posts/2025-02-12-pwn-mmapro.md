@@ -1,4 +1,4 @@
----
+![image](https://github.com/user-attachments/assets/313943cf-b220-4897-852e-9771d4b5b6ae)---
 title: PWN MMAPRO LACTF WRITEUP [TURNING CRASHES INTO CODE EXECUTION]
 date: 2025-02-12 11:28:05 +0200
 categories: [pwn,lactf,mmap]
@@ -37,7 +37,7 @@ Terminals or pipes typically do not support memory mapping in the way regular fi
 - The libc version they provided with this challenge was **2.37** 
 - So I quickly checked the `mman.h` file diff b/w libc version 2.37 & 2.41
 
-<img src="https://hackmd.io/_uploads/B1K-uXFYkx.png"> <br>
+<img src="https://camo.githubusercontent.com/cadacf08f37ef030b7ce5a652cc86289e8be238da14f145b2742de211ddda17c/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f42314b2d755846596b782e706e67"> <br>
 
 - Hmm, not so useful ig, then I checked the man page again with the belief of (Haaa there must be some tricks with MMAP we can easily get a shell) and collected all the flags for these arguments
 
@@ -113,7 +113,7 @@ p.interactive()
 
 - Set breakpoint in main+142, that's where our mmap begins
 
-<img src="https://hackmd.io/_uploads/SyST9mtK1x.png"> <br>
+<img src="https://camo.githubusercontent.com/21df6a6a38492df99d08907782f91b64a34a251a995c926686c5c7631a754284/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f53795354396d744b31782e706e67"> <br>
 
 - addr=0, so the program will decide the memory location
 - length = 4096 bytes, it's rwx, flags = `MAP_ANONYMOUS|MAP_PRIVATE`
@@ -121,27 +121,27 @@ p.interactive()
 - Everything is set, and we got `*RAX = 0x7f17316ac000` after syscall; 
 - So our syscall did not fail
 
-<img src="https://hackmd.io/_uploads/ryQjiQYYyl.png"> <br>
+<img src="https://camo.githubusercontent.com/2d5c3779fd0fa030ec2f9b4a609e0b724f640c000b551bc65b263ef112c00c94/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f7279516a69515959796c2e706e67"> <br>
 
 - After the mmap, it places null bytes in the mmaped region, I thought it's not useful, since the page need to be 0x1000 aligned, so we can't randomly change a non-aligned memory address's value to null 🤔 
 
-<img src="https://hackmd.io/_uploads/HkOl2mtFJg.png"> <br>
+<img src="https://camo.githubusercontent.com/a0b6f607a4718136f30cba42b09a7b2cf9f768496c93f5f1ce55daed241b9339/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f486b4f6c326d74464a672e706e67"> <br>
 
 - But the byte `\x00` in x64 instruction set is `add    BYTE PTR [rax],al` instruction
 - This simply behaves like a `nop` instruction (until we have rax = *ptr)
 - So we can travel further if we have a pointer in rax
 
-<img src="https://hackmd.io/_uploads/ryei2mtKye.png"> <br>
+<img src="https://camo.githubusercontent.com/d5e7b49fb06ce6107e190d58ba95fdd6fb36a2257d7cb080cf65dd6fb6d8d3a8/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f72796569326d744b79652e706e67"> <br>
 
 - In the end **rax** is changed to `0` when the program reaches exit function
 - Here rax = 0, so if we try to change that exit memory address values to NULL bytes, then the program will result in `SIGSEGV, Segmentation fault`
 - Beacause rax is not a pointer, it's 0
 
-<img src="https://hackmd.io/_uploads/BkQC6QKFye.png"> <br>
+<img src="https://camo.githubusercontent.com/2590aa9ca1be63297c292d6acac9d4f01e385bf725bf2ab98b9ecac6674bebe7/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f426b514336514b4679652e706e67"> <br>
 
 - So I tried to step-in through the exit function's code and even went to `__run_exit_handlers` , `__call_tls_dtors` then some code in `ld-2.37.so`, my goal is to find some point where the program changes the **rax** regisiter's value to a pointer then I can go futher using `add byte ptr [rax],al` instruction and eventually land in a **onegadget** 💀 🤣 
 
-<img src="https://hackmd.io/_uploads/SysE14tKyl.png"> <br>
+<img src="https://camo.githubusercontent.com/ee3bf70144a9be3397454e7e7ed35a1eef4abb2e6914123862bfebc1d60d8b41/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f537973453134744b796c2e706e67"> <br>
 
 - If I was that much luckier, I'd be celebrating first blood 🩸, while others staring at their crashes and blaming the chall author for not giving the full code 😡 
 
@@ -151,7 +151,7 @@ p.interactive()
 - Remember the point where we got `*RAX = 0x7f17316ac000` ? => after the mmap syscall
 
 
-<img src="https://hackmd.io/_uploads/HyaKSVFtyg.png"> <br>
+<img src="https://camo.githubusercontent.com/00777665f055f04375ce9bbc17947dfaec87af2f4ca5bf0ed87dce99dec860f5/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f4879614b5356467479672e706e67"> <br>
 
 
 - So the place `__GI___mmap64+23` is a good target for placing our nullbytes, coz rax will have a pointer -> if mmap syscall is sucessfully executed
@@ -172,7 +172,7 @@ offset = 0
  
 - I subtracted `0xf37` from `__GI___mmap64+23` addr, since the page need to be 0x1000 aligned!!
 
-<img src="https://hackmd.io/_uploads/SJnfdNYY1g.png"> <br>
+<img src="https://camo.githubusercontent.com/2b040878ac3809631d79bfa1901bb0d8d62d6e5da2074b4e92bea8163487be9e/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f534a6e66644e595931672e706e67"> <br>
 
 - After the syscall everything changed to nullbytes, so we can continue the program execution until the program crashes somewhere
 
@@ -189,7 +189,7 @@ offset = 0
 
 ### AUTOMATING THE PROCESS
 
-<img src="https://hackmd.io/_uploads/B1qWwNqY1x.png"> <br>
+<img src="https://camo.githubusercontent.com/d1be2306ad11ec3583a80265c90b1ad3e18e4eccbef74de81e2806b942bd7403/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f42317157774e715931782e706e67"> <br>
 
 - I wrote a small python script with the GDB api to print all these infos, so we can analyze our crash easily
 
@@ -273,7 +273,7 @@ print(colored('-'*80,'magenta',attrs=["bold"]))
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/50TLI0NOj0c?si=PNI6w9b6LB27qDpP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<img src="https://hackmd.io/_uploads/rJBfkS5KJx.png"> <br>
+<img src="https://camo.githubusercontent.com/2c97825d982590720f64e9b7af34f6a6e69b741eadc90863b509a8df0d036317/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f724a42666b53354b4a782e706e67"> <br>
 
 
 ```js 
@@ -368,11 +368,11 @@ crash_25.txt:rip = 0x7cc017f2e002
 - Let's take a look at it
 - It crashed in `size_t length: 0x57000`
 
-<img src="https://hackmd.io/_uploads/HkjOgHqFJg.png"> <br>
+<img src="https://camo.githubusercontent.com/187aee7a61403ef4c7f47c4a211862f40d32ece923d7b2de0b8d5eb9ff922ced/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f486b6a4f674871464a672e706e67"> <br>
 
 - For the next `0x57000` bytes, `add    byte ptr [rax], al` only executes, so let's set a breakpoint after it, and continue the execution
 
-<img src="https://hackmd.io/_uploads/HkYy-S9t1e.png"> <br>
+<img src="https://camo.githubusercontent.com/8bf81dfbbd1c41007204ee98f3c7bf8abe6a919a59c959de51f1ded45596bd8b/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f486b59792d53397431652e706e67"> <br>
 
 - Now we are in : [https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ptsname.c](https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26)
 
@@ -383,24 +383,24 @@ crash_25.txt:rip = 0x7cc017f2e002
 - now let's check ioctl.c: [https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ioctl.c#L25](https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26)
 
 
-<img src="https://hackmd.io/_uploads/ryleQH5YJx.png"> <br>
+<img src="https://camo.githubusercontent.com/b7548bfd122d93b9538b833a70fe5e6fccaa0f2f9d2f3b066885d032e285bf68/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f72796c65514835594a782e706e67"> <br>
 
-<img src="https://hackmd.io/_uploads/rkdG7rctkl.png"> <br>
+<img src="https://camo.githubusercontent.com/6bcddd226c81905766c7e33ae5e1b1be38ef7c9914ebbd8a909d492dedc19274/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f726b6447377263746b6c2e706e67"> <br>
 
 - In line => 35 `ioctl` is being called, it fails and returns `0xfffffffffffffff7` in rax
 
-<img src="https://hackmd.io/_uploads/Bk8oIBcKJe.png"> <br>
+<img src="https://camo.githubusercontent.com/78f55205f96c5062e6315fe8091d83ed994e009148f1c8573c071eb2b24f3452/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f426b386f4942634b4a652e706e67"> <br>
 
 - which is a Bad file descriptor error, so the code returns -1 => check line:39
 - Now the check `if (__ioctl (fd, TIOCGPTN, &ptyno) == 0)` fails in `ptsname.c#L54`
 
 
-<img src="https://hackmd.io/_uploads/S1oGdr5YJe.png"> <br>
+<img src="https://camo.githubusercontent.com/39fab91ffb6e5f6f2d6ae782680028ac31675dbb6116b43c3f7f99a70f382a5b/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f53316f47647235594a652e706e67"> <br>
 
 - But while returning it pops some values in the stack, exactly 5
 - And the 6 value in the stack is 0x32, which we can confidently say as `flags` -> `MAP_FIXED | MAP_ANONYMOUS | MAP_PRIVATE` of our mmap syscall, because you can see other values like `0x57000` -> our length, `7` -> prot, `0xffffffffffffffff` -> `-1` fd of the mmap we provided.
 
-<img src="https://hackmd.io/_uploads/ByV19H9tyl.png"> <br>
+<img src="https://camo.githubusercontent.com/519bc51b4ed62e468d9e4a5ce866faed49cd02f5c477678bfb90b7c6bbabbed8/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f4279563139483974796c2e706e67"> <br>
 
 - After popping everything our stack will looks like this and our value 0x32 is set in RIP, this is the most valuable crash we got so far.
 - **Why this happened?:** This happened because we directly jumped into line 50 of `ptsname.c` : https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ptsname.c#L50
@@ -470,7 +470,7 @@ print(f"Flags set in {hex(flag_value)}: {decode_flags(flag_value)}")
 
 - Let's try all the one_gadget address using the above script
 
-<img src="https://hackmd.io/_uploads/rJi5_89Yyx.png"> <br>
+<img src="https://camo.githubusercontent.com/89e59255bf56a91b41abbbc321825b9379e635ffb01ad7aed0dfd38b0252094e/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f724a69355f38395979782e706e67"> <br>
 
 - We got the flag values, not sure which one suits for us, so let's try to bruteforce every gadget value
 
@@ -585,7 +585,7 @@ p.interactive()
 - Now time for plan B
 - We have RIP control in mmap's fd argument, and we can even control the next value in the stack that's offset, but it need to be 0x1000 aligned
 
-<img src="https://hackmd.io/_uploads/rJjRfOqK1e.png"> <br>
+<img src="https://camo.githubusercontent.com/2a0f21b09e020d5401822dc6b905011c3e5a6709318e8d515d3a113dcfb08d05/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f724a6a52664f714b31652e706e67"> <br>
 
 - We have `0x77cbb0515000` in RDI, which is our mmaped region, and it has rwx permissions,
 - We can jump here if we put this value in the offset argument of mmap (it will be placed in the stack after the FD), but for now only null bytes are here
@@ -595,7 +595,7 @@ p.interactive()
 - RDI is already our mmaped value, so our shellcode will be written here, and we can jump here eventually
 
 
-<img src="https://hackmd.io/_uploads/Sk_OB_9Kkl.png"> <br>
+<img src="https://camo.githubusercontent.com/1bcfddc5e48f48b366076b2982b132698aaa3705d8b7ee95e8d7f6a22ef3ec40/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f536b5f4f425f394b6b6c2e706e67"> <br>
 
 - And we got our shell 😌 
 
