@@ -37,7 +37,7 @@ Terminals or pipes typically do not support memory mapping in the way regular fi
 - The libc version they provided with this challenge was **2.37** 
 - So I quickly checked the `mman.h` file diff b/w libc version 2.37 & 2.41
 
-![image](https://hackmd.io/_uploads/B1K-uXFYkx.png) <br>
+<img src="https://hackmd.io/_uploads/B1K-uXFYkx.png"> <br>
 
 - Hmm, not so useful ig, then I checked the man page again with the belief of (Haaa there must be some tricks with MMAP we can easily get a shell) and collected all the flags for these arguments
 
@@ -113,7 +113,7 @@ p.interactive()
 
 - Set breakpoint in main+142, that's where our mmap begins
 
-![image](https://hackmd.io/_uploads/SyST9mtK1x.png) <br>
+<img src="https://hackmd.io/_uploads/SyST9mtK1x.png"> <br>
 
 - addr=0, so the program will decide the memory location
 - length = 4096 bytes, it's rwx, flags = `MAP_ANONYMOUS|MAP_PRIVATE`
@@ -121,27 +121,27 @@ p.interactive()
 - Everything is set, and we got `*RAX = 0x7f17316ac000` after syscall; 
 - So our syscall did not fail
 
-![image](https://hackmd.io/_uploads/ryQjiQYYyl.png) <br>
+<img src="https://hackmd.io/_uploads/ryQjiQYYyl.png"> <br>
 
 - After the mmap, it places null bytes in the mmaped region, I thought it's not useful, since the page need to be 0x1000 aligned, so we can't randomly change a non-aligned memory address's value to null 🤔 
 
-![image](https://hackmd.io/_uploads/HkOl2mtFJg.png) <br>
+<img src="https://hackmd.io/_uploads/HkOl2mtFJg.png"> <br>
 
 - But the byte `\x00` in x64 instruction set is `add    BYTE PTR [rax],al` instruction
 - This simply behaves like a `nop` instruction (until we have rax = *ptr)
 - So we can travel further if we have a pointer in rax
 
-![image](https://hackmd.io/_uploads/ryei2mtKye.png) <br>
+<img src="https://hackmd.io/_uploads/ryei2mtKye.png"> <br>
 
 - In the end **rax** is changed to `0` when the program reaches exit function
 - Here rax = 0, so if we try to change that exit memory address values to NULL bytes, then the program will result in `SIGSEGV, Segmentation fault`
 - Beacause rax is not a pointer, it's 0
 
-![image](https://hackmd.io/_uploads/BkQC6QKFye.png) <br>
+<img src="https://hackmd.io/_uploads/BkQC6QKFye.png"> <br>
 
 - So I tried to step-in through the exit function's code and even went to `__run_exit_handlers` , `__call_tls_dtors` then some code in `ld-2.37.so`, my goal is to find some point where the program changes the **rax** regisiter's value to a pointer then I can go futher using `add byte ptr [rax],al` instruction and eventually land in a **onegadget** 💀 🤣 
 
-![image](https://hackmd.io/_uploads/SysE14tKyl.png) <br>
+<img src="https://hackmd.io/_uploads/SysE14tKyl.png"> <br>
 
 - If I was that much luckier, I'd be celebrating first blood 🩸, while others staring at their crashes and blaming the chall author for not giving the full code 😡 
 
@@ -151,7 +151,7 @@ p.interactive()
 - Remember the point where we got `*RAX = 0x7f17316ac000` ? => after the mmap syscall
 
 
-![image](https://hackmd.io/_uploads/HyaKSVFtyg.png) <br>
+<img src="https://hackmd.io/_uploads/HyaKSVFtyg.png"> <br>
 
 
 - So the place `__GI___mmap64+23` is a good target for placing our nullbytes, coz rax will have a pointer -> if mmap syscall is sucessfully executed
@@ -172,7 +172,7 @@ offset = 0
  
 - I subtracted `0xf37` from `__GI___mmap64+23` addr, since the page need to be 0x1000 aligned!!
 
-![image](https://hackmd.io/_uploads/SJnfdNYY1g.png) <br>
+<img src="https://hackmd.io/_uploads/SJnfdNYY1g.png"> <br>
 
 - After the syscall everything changed to nullbytes, so we can continue the program execution until the program crashes somewhere
 
@@ -189,7 +189,7 @@ offset = 0
 
 ### AUTOMATING THE PROCESS
 
-![image](https://hackmd.io/_uploads/B1qWwNqY1x.png) <br>
+<img src="https://hackmd.io/_uploads/B1qWwNqY1x.png"> <br>
 
 - I wrote a small python script with the GDB api to print all these infos, so we can analyze our crash easily
 
@@ -273,7 +273,7 @@ print(colored('-'*80,'magenta',attrs=["bold"]))
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/50TLI0NOj0c?si=PNI6w9b6LB27qDpP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-![image](https://hackmd.io/_uploads/rJBfkS5KJx.png) <br>
+<img src="https://hackmd.io/_uploads/rJBfkS5KJx.png"> <br>
 
 
 ```js 
@@ -368,39 +368,39 @@ crash_25.txt:rip = 0x7cc017f2e002
 - Let's take a look at it
 - It crashed in `size_t length: 0x57000`
 
-![image](https://hackmd.io/_uploads/HkjOgHqFJg.png) <br>
+<img src="https://hackmd.io/_uploads/HkjOgHqFJg.png"> <br>
 
 - For the next `0x57000` bytes, `add    byte ptr [rax], al` only executes, so let's set a breakpoint after it, and continue the execution
 
-![image](https://hackmd.io/_uploads/HkYy-S9t1e.png) <br>
+<img src="https://hackmd.io/_uploads/HkYy-S9t1e.png"> <br>
 
 - Now we are in : [https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ptsname.c](https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26)
 
-![image](https://hackmd.io/_uploads/HJEjZB9tye.png) <br>
+<img src="https://hackmd.io/_uploads/HJEjZB9tye.png"> <br>
 
 - After few instructions it calls `ioctl`
 - Exactly in this line: [https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ptsname.c#L54](https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26)
 - now let's check ioctl.c: [https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ioctl.c#L25](https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26)
 
 
-![image](https://hackmd.io/_uploads/ryleQH5YJx.png) <br>
+<img src="https://hackmd.io/_uploads/ryleQH5YJx.png"> <br>
 
-![image](https://hackmd.io/_uploads/rkdG7rctkl.png) <br>
+<img src="https://hackmd.io/_uploads/rkdG7rctkl.png"> <br>
 
 - In line => 35 `ioctl` is being called, it fails and returns `0xfffffffffffffff7` in rax
 
-![image](https://hackmd.io/_uploads/Bk8oIBcKJe.png) <br>
+<img src="https://hackmd.io/_uploads/Bk8oIBcKJe.png"> <br>
 
 - which is a Bad file descriptor error, so the code returns -1 => check line:39
 - Now the check `if (__ioctl (fd, TIOCGPTN, &ptyno) == 0)` fails in `ptsname.c#L54`
 
 
-![image](https://hackmd.io/_uploads/S1oGdr5YJe.png) <br>
+<img src="https://hackmd.io/_uploads/S1oGdr5YJe.png"> <br>
 
 - But while returning it pops some values in the stack, exactly 5
 - And the 6 value in the stack is 0x32, which we can confidently say as `flags` -> `MAP_FIXED | MAP_ANONYMOUS | MAP_PRIVATE` of our mmap syscall, because you can see other values like `0x57000` -> our length, `7` -> prot, `0xffffffffffffffff` -> `-1` fd of the mmap we provided.
 
-![image](https://hackmd.io/_uploads/ByV19H9tyl.png) <br>
+<img src="https://hackmd.io/_uploads/ByV19H9tyl.png"> <br>
 
 - After popping everything our stack will looks like this and our value 0x32 is set in RIP, this is the most valuable crash we got so far.
 - **Why this happened?:** This happened because we directly jumped into line 50 of `ptsname.c` : https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ptsname.c#L50
@@ -470,7 +470,7 @@ print(f"Flags set in {hex(flag_value)}: {decode_flags(flag_value)}")
 
 - Let's try all the one_gadget address using the above script
 
-![image](https://hackmd.io/_uploads/rJi5_89Yyx.png) <br>
+<img src="https://hackmd.io/_uploads/rJi5_89Yyx.png"> <br>
 
 - We got the flag values, not sure which one suits for us, so let's try to bruteforce every gadget value
 
@@ -585,7 +585,7 @@ p.interactive()
 - Now time for plan B
 - We have RIP control in mmap's fd argument, and we can even control the next value in the stack that's offset, but it need to be 0x1000 aligned
 
-![image](https://hackmd.io/_uploads/rJjRfOqK1e.png) <br>
+<img src="https://hackmd.io/_uploads/rJjRfOqK1e.png"> <br>
 
 - We have `0x77cbb0515000` in RDI, which is our mmaped region, and it has rwx permissions,
 - We can jump here if we put this value in the offset argument of mmap (it will be placed in the stack after the FD), but for now only null bytes are here
@@ -595,7 +595,7 @@ p.interactive()
 - RDI is already our mmaped value, so our shellcode will be written here, and we can jump here eventually
 
 
-![image](https://hackmd.io/_uploads/Sk_OB_9Kkl.png) <br>
+<img src="https://hackmd.io/_uploads/Sk_OB_9Kkl.png"> <br>
 
 - And we got our shell 😌 
 
