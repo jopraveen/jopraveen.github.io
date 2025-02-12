@@ -186,7 +186,7 @@ offset = 0
 
 - I wrote a small python script with the GDB api to print all these infos, so we can analyze our crash easily
 
-```python3
+```python
 #!/usr/bin/env python3
 from pwn import *
 from termcolor import colored
