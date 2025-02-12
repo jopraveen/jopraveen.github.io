@@ -6,22 +6,22 @@ tags: [CTFTIME WRITEUP]
 excerpt: mmapro is a pwn challenge from LA CTF 2025, I haven't solved it but I got some reasonable crashes, so let's analyze my crashes and turn it into a code execution 👾
 ---
 
-![](https://i.imgur.com/sfqQZlq.png)
+![](https://i.imgur.com/sfqQZlq.png) <br>
 
 - `mmapro` is a pwn challenge from LA CTF 2025, I haven't solved it but I got some reasonable crashes, so let's analyze my crashes and turn it into a code execution 👾
 
-![link text](https://i.imgur.com/kMt0hTy.png)
+![link text](https://i.imgur.com/kMt0hTy.png) <br>
 
 - Here's our challenge, let's see what it does
-1) L:6 => creating an array of 6 long integers, (6*8 (sizeof long) = 48 bytes)
+1) L:6 => creating an array of 6 long integers, (6*8 (sizeof long) = 48 bytes) <br>
 
-![](https://i.imgur.com/7sNDa0Q.png)
+![](https://i.imgur.com/7sNDa0Q.png) <br>
 
-2) L:7 => writing mmap's address to stdout, so here we are getting a libc leak
-3) L:8 => reading 48 bytes of input (sizeof(a) => 6*8 = 48 bytes) and storing it in `a`
-4) L:9 => calling mmap function with our input as 6 arguments respectively.
+2) L:7 => writing mmap's address to stdout, so here we are getting a libc leak  <br>
+3) L:8 => reading 48 bytes of input (sizeof(a) => 6*8 = 48 bytes) and storing it in `a`  <br>
+4) L:9 => calling mmap function with our input as 6 arguments respectively.  <br>
 
-- That's all the code does? yes :sob: 
+- That's all the code does? yes 😭 
 - Here they are just mapping the memory, so how can anyone get code execution here? 
 - Initially I got some ideas like putting `0` (stdin) as fd argument to mmap function, so it will read our input and we can get some arbitary write since we controll the src addr, but...
 
@@ -33,10 +33,10 @@ excerpt: mmapro is a pwn challenge from LA CTF 2025, I haven't solved it but I g
 - **If Standard Input Is a Terminal or Pipe:**
 Terminals or pipes typically do not support memory mapping in the way regular files do. In that case, mmap() is likely to fail (returning MAP_FAILED) because the underlying device doesn’t allow the random-access behavior required for mmap().
 
-- The libc version they prodived with this challenge was **2.37** 
+- The libc version they provided with this challenge was **2.37** 
 - So I quickly checked the `mman.h` file diff b/w libc version 2.37 & 2.41
 
-![image](https://hackmd.io/_uploads/B1K-uXFYkx.png)
+![image](https://hackmd.io/_uploads/B1K-uXFYkx.png) <br>
 
 - Hmm, not so useful ig, then I checked the man page again with the belief of (Haaa there must be some tricks with MMAP we can easily get a shell) and collected all the flags for these arguments
 
@@ -50,9 +50,9 @@ void *mmap(void addr[.length],
 );
 ```
 
-- Check the above code for reference, incase you forgot the syntax like me :slightly_smiling_face: 
+- Check the above code for reference, incase you forgot the syntax like me 🙂 
 - The only advantage is we can controll all these six args.
-- First let's mmap a random region and see what it does after it.
+- First let's mmap a random region and see what the program does after mmaping.
 
 ```python
 #!/usr/bin/env python3
@@ -109,36 +109,37 @@ p.interactive()
 
 - Set breakpoint in main+142, that's where our mmap begins
 
-![image](https://hackmd.io/_uploads/SyST9mtK1x.png)
+![image](https://hackmd.io/_uploads/SyST9mtK1x.png) <br>
 
 - addr=0, so the program will decide the memory location
 - length = 4096 bytes, it's rwx, flags = MAP_ANONYMOUS|MAP_PRIVATE
 - Since it's anonymous it doesn't require FD, so fd= -1 and offset is 0
-- Everything is set, and we got `*RAX = 0x7f17316ac000`, after syscall; so our syscall is not failed
+- Everything is set, and we got `*RAX = 0x7f17316ac000` after syscall; 
+- So our syscall did not fail
 
-![image](https://hackmd.io/_uploads/ryQjiQYYyl.png)
+![image](https://hackmd.io/_uploads/ryQjiQYYyl.png) <br>
 
-- After the mmap, it places null bytes in the mmaped region, I thought it's not useful, since the page need to be 0x1000 aligned, so we can't randomly change a non-aligned memory address's value to null :thinking_face: 
+- After the mmap, it places null bytes in the mmaped region, I thought it's not useful, since the page need to be 0x1000 aligned, so we can't randomly change a non-aligned memory address's value to null 🤔 
 
-![image](https://hackmd.io/_uploads/HkOl2mtFJg.png)
+![image](https://hackmd.io/_uploads/HkOl2mtFJg.png) <br>
 
 - But the byte `\x00` in x64 instruction set is `add    BYTE PTR [rax],al` instruction
-- This simply behaves like a `nop` instruction (untill we have rax = *ptr)
+- This simply behaves like a `nop` instruction (until we have rax = *ptr)
 - So we can travel further if we have a pointer in rax
 
-![image](https://hackmd.io/_uploads/ryei2mtKye.png)
+![image](https://hackmd.io/_uploads/ryei2mtKye.png) <br>
 
 - In the end **rax** is changed to `0` when the program reaches exit function
 - Here rax = 0, so if we try to change that exit memory address values to NULL bytes, then the program will result in `SIGSEGV, Segmentation fault`
 - Beacause rax is not a pointer, it's 0
 
-![image](https://hackmd.io/_uploads/BkQC6QKFye.png)
+![image](https://hackmd.io/_uploads/BkQC6QKFye.png) <br>
 
-- So I tried to step-in through the exit function's code and even went to `__run_exit_handlers` , `__call_tls_dtors` then some code in `ld-2.37.so`, my goal is to find some point where the program changes the **rax** regisiter's value to a pointer then I can go futher using `add byte ptr [rax],al` instruction and eventually land in a **onegadget** :skull: :rolling_on_the_floor_laughing: 
+- So I tried to step-in through the exit function's code and even went to `__run_exit_handlers` , `__call_tls_dtors` then some code in `ld-2.37.so`, my goal is to find some point where the program changes the **rax** regisiter's value to a pointer then I can go futher using `add byte ptr [rax],al` instruction and eventually land in a **onegadget** 💀 🤣 
 
-![image](https://hackmd.io/_uploads/SysE14tKyl.png)
+![image](https://hackmd.io/_uploads/SysE14tKyl.png) <br>
 
-- If I was that much luckier, I'd be celebrating first blood 🩸, while others staring at their crashes and blaming the chall author for not giving the full code :angry: 
+- If I was that much luckier, I'd be celebrating first blood 🩸, while others staring at their crashes and blaming the chall author for not giving the full code 😡 
 
 
 ### GETTING CRASHES:
@@ -146,11 +147,11 @@ p.interactive()
 - Remember the point where we got `*RAX = 0x7f17316ac000` ? => after the mmap syscall
 
 
-![image](https://hackmd.io/_uploads/HyaKSVFtyg.png)
+![image](https://hackmd.io/_uploads/HyaKSVFtyg.png) <br>
 
 
-- So the place `__GI___mmap64+23` is a good target for placing our nullbytes, since rax will have a pointer -> if mmap syscall is sucessfully executed
-- So we can travel further and land/crash in some other locations instead of just exiting :face_with_monocle: 
+- So the place `__GI___mmap64+23` is a good target for placing our nullbytes, coz rax will have a pointer -> if mmap syscall is sucessfully executed
+- So we can travel further and land/crash in some other locations instead of just exiting 🧐 
 
 
 ```python
@@ -165,24 +166,24 @@ offset = 0
 ```
 - I subtracted `0xf37` from `__GI___mmap64+23` addr, since the page need to be 0x1000 aligned!!
 
-![image](https://hackmd.io/_uploads/SJnfdNYY1g.png)
+![image](https://hackmd.io/_uploads/SJnfdNYY1g.png) <br>
 
-- After the syscall everything changed to nullbytes, so we can continute the program execution untill the program crashes somewhere
+- After the syscall everything changed to nullbytes, so we can continue the program execution until the program crashes somewhere
 
 - Eventually it crashed in `/sysdeps/unix/sysv/linux/msync.c:26`
-- https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26
+- [https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26](https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26)
 - This crash is not useful :( 
 - Let's increment our `mmap(..,  size_t length, ...)` by 0x1000 and check the next crash
 
 **0x2000 crashed in:**
 
-- https://elixir.bootlin.com/glibc/glibc-2.37/source/misc/tsearch.c#L695
+- [https://elixir.bootlin.com/glibc/glibc-2.37/source/misc/tsearch.c#L695](https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26)
 - This code is also not useful, since it crashed in `add    byte ptr [rbx + 0x2b7701ff], al` instruction and we don't control anything from rbx and nothing interesting happens after that.
 
 
 ### AUTOMATING THE PROCESS
 
-![image](https://hackmd.io/_uploads/B1qWwNqY1x.png)
+![image](https://hackmd.io/_uploads/B1qWwNqY1x.png) <br>
 
 - I wrote a small python script with the GDB api to print all these infos, so we can analyze our crash easily
 
@@ -258,14 +259,14 @@ print(colored('-'*80,'magenta',attrs=["bold"]))
 
 ```
 
-![](https://i.imgur.com/rZJQRbn.png)
+![](https://i.imgur.com/rZJQRbn.png) <br>
 
 - It's size is 0x178000, which is (376 * 0x1000) aligned pages
 - Our `mmap64+23` is already in the `0x115000` -> 277th page, so still we can iterate 89 pages and we can get 89 different crashes
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/50TLI0NOj0c?si=PNI6w9b6LB27qDpP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-![image](https://hackmd.io/_uploads/rJBfkS5KJx.png)
+![image](https://hackmd.io/_uploads/rJBfkS5KJx.png) <br>
 
 
 ```js 
@@ -355,43 +356,43 @@ crash_25.txt:rip = 0x7cc017f2e002
 ```
 
 - One simple way is to check the RIP register from all crashes
-- In `crash_87.txt`, the RIP is 0x32, which is very rare :thinking_face: 
+- In `crash_87.txt`, the RIP is 0x32, which is very rare 🤔 
 - Let's take a look at it
 - It crashed in `size_t length: 0x57000`
 
-![image](https://hackmd.io/_uploads/HkjOgHqFJg.png)
+![image](https://hackmd.io/_uploads/HkjOgHqFJg.png) <br>
 
-- For the next `0x57000` bytes, ` add    byte ptr [rax], al` only executes, so let's set a breakpoint after it, and continue the execution
+- For the next `0x57000` bytes, `add    byte ptr [rax], al` only executes, so let's set a breakpoint after it, and continue the execution
 
-![image](https://hackmd.io/_uploads/HkYy-S9t1e.png)
+![image](https://hackmd.io/_uploads/HkYy-S9t1e.png) <br>
 
-- Now we are in : https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ptsname.c
+- Now we are in : [https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ptsname.c](https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26)
 
-![image](https://hackmd.io/_uploads/HJEjZB9tye.png)
+![image](https://hackmd.io/_uploads/HJEjZB9tye.png) <br>
 
-- After few instruction it calls `ioctl`
-- Exactly in this line: https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ptsname.c#L54
-- now let's check ioctl.c: https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ioctl.c#L25
+- After few instructions it calls `ioctl`
+- Exactly in this line: [https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ptsname.c#L54](https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26)
+- now let's check ioctl.c: [https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ioctl.c#L25](https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/msync.c#L26)
 
 
-![image](https://hackmd.io/_uploads/ryleQH5YJx.png)
+![image](https://hackmd.io/_uploads/ryleQH5YJx.png) <br>
 
-![image](https://hackmd.io/_uploads/rkdG7rctkl.png)
+![image](https://hackmd.io/_uploads/rkdG7rctkl.png) <br>
 
 - In line => 35 `ioctl` is being called, it fails and returns `0xfffffffffffffff7` in rax
 
-![image](https://hackmd.io/_uploads/Bk8oIBcKJe.png)
+![image](https://hackmd.io/_uploads/Bk8oIBcKJe.png) <br>
 
 - which is a Bad file descriptor error, so the code returns -1 => check line:39
 - Now the check `if (__ioctl (fd, TIOCGPTN, &ptyno) == 0)` fails in `ptsname.c#L54`
 
 
-![image](https://hackmd.io/_uploads/S1oGdr5YJe.png)
+![image](https://hackmd.io/_uploads/S1oGdr5YJe.png) <br>
 
 - But while returning it pops some values in the stack, exactly 5
 - And the 6 value in the stack is 0x32, which we can confidently say as `flags` -> `MAP_FIXED | MAP_ANONYMOUS | MAP_PRIVATE` of our mmap syscall, because you can see other values like `0x57000` -> our length, `7` -> prot, `0xffffffffffffffff` -> `-1` fd of the mmap we provided.
 
-![image](https://hackmd.io/_uploads/ByV19H9tyl.png)
+![image](https://hackmd.io/_uploads/ByV19H9tyl.png) <br>
 
 - After popping everything our stack will looks like this and our value 0x32 is set in RIP, this is the most valuable crash we got so far.
 - **Why this happened?:** This happened because we directly jumped into line 50 of `ptsname.c` : https://elixir.bootlin.com/glibc/glibc-2.37/source/sysdeps/unix/sysv/linux/ptsname.c#L50
@@ -425,7 +426,7 @@ MMAP_FLAGS = {
 }
 ```
 
-- But we can't do it using easily,because the flag values might match a valid flag, else the syscall will fail
+- But we can't do it easily, because the flag values might match a valid flag, otherwise it fails
 - I wrote a small python script to check the available flag values in a given address
 
 
@@ -459,9 +460,9 @@ print(f"Flags set in {hex(flag_value)}: {decode_flags(flag_value)}")
 
 - Let's try all the one_gadget address using the above script
 
-![image](https://hackmd.io/_uploads/rJi5_89Yyx.png)
+![image](https://hackmd.io/_uploads/rJi5_89Yyx.png) <br>
 
-- We got the flag values, not sure which one suits for us, so first let's bruteforce every gadget value
+- We got the flag values, not sure which one suits for us, so let's try to bruteforce every gadget value
 
 
 ```python
@@ -507,9 +508,9 @@ for gadget_addr in one_gadgets:
     p.interactive()
 ```
 
-- Nothing worked :thinking_face: 
-- Ok, we can still jump to every gadget, since we have control over stack, the next address in stack also our controllable value => fd, currently it's `-1`, and it's not required since we are mapping an anonymous page
-- So let's plan to put a `ret` address value in `flags` instead of directly putting the `one_gadget`'s address
+- Nothing worked 🤔 
+- Ok, we can still jump to one gadget, since we have control over stack, the next address in the stack is also controllable by us => fd, currently it's `-1`, and it's not required since we are mapping an anonymous page
+- So let's plan to put a `ret` gadget address value in `flags` instead of directly putting the `one_gadget`'s address
 - Initially I tried to get `ret` gadget using ropper, and tried many gadgets manually, nothing worked in my favour
 - So I extracted every single ret gadget from the libc `search -t byte 0xc3 -e` and used it in flags
 
@@ -566,12 +567,12 @@ p.interactive()
 0x3c0f2
 ```
 
-- Then I used my bruteforce script again to make my onegadget plan work. but not even a single gadget worked :slightly_smiling_face: 
+- Then I used my bruteforce script again to make my onegadget plan work. but not even a single gadget worked 🙂 
 
 - Now time for plan B
 - We have RIP control in mmap's fd argument, and we can even control the next value in the stack that's offset, but it need to be 0x1000 aligned
 
-![image](https://hackmd.io/_uploads/rJjRfOqK1e.png)
+![image](https://hackmd.io/_uploads/rJjRfOqK1e.png) <br>
 
 - We have `0x77cbb0515000` in RDI, which is our mmaped region, and it has rwx permissions,
 - We can jump here if we put this value in the offset argument of mmap (it will be placed in the stack after the FD), but for now only null bytes are here
@@ -581,9 +582,9 @@ p.interactive()
 - RDI is already our mmaped value, so our shellcode will be written here, and we can jump here eventually
 
 
-![image](https://hackmd.io/_uploads/Sk_OB_9Kkl.png)
+![image](https://hackmd.io/_uploads/Sk_OB_9Kkl.png) <br>
 
-- And we got our shell :relieved: 
+- And we got our shell 😌 
 
 
 ### **Final Script:**
