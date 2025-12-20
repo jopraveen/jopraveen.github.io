@@ -477,7 +477,7 @@
   border: 2px solid var(--border-color);
   color: var(--text-primary);
   cursor: pointer;
-  font-family: $mono-family;
+  font-family: var(--font-family);
   font-size: 12px;
   font-weight: $bold-weight;
   letter-spacing: 1px;

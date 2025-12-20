@@ -330,7 +330,7 @@
     font-size: $base-font-size;
     background-color: var(--bg-secondary);
     border: 2px solid var(--bg-secondary);
-    font-family: $mono-family;
+    font-family: var(--font-family);
     
     &:focus {
       border: 2px solid var(--border-color);

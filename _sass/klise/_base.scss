@@ -111,7 +111,10 @@ body {
   position: relative;
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  font: $normal-weight #{$base-font-size}/#{$base-line-height} $sans-family;
+  font-family: var(--font-family);
+  font-weight: $normal-weight;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   font-kerning: normal;
@@ -162,7 +165,7 @@ kbd {
   display: inline-block;
   font-size: $small-font-size;
   line-height: 1.4;
-  font-family: $mono-family;
+  font-family: var(--font-family);
   margin: 0 0.1em;
   font-weight: $bold-weight;
   padding: 2px 6px;
@@ -426,7 +429,7 @@ sup {
 
 // Code
 code {
-  font-family: $mono-family;
+  font-family: var(--font-family);
   font-size: $small-font-size;
   background-color: var(--bg-secondary);
   color: var(--accent-color);

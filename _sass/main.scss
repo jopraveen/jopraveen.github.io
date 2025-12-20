@@ -1,6 +1,10 @@
-// Fonts preferences - JetBrains Mono for everything
-$sans-family: 'JetBrains Mono', monospace;
-$mono-family: 'JetBrains Mono', monospace;
+// Fonts preferences - default to JetBrains Mono, but can be overridden
+:root {
+  --font-family: 'JetBrains Mono', monospace;
+}
+
+$sans-family: var(--font-family);
+$mono-family: var(--font-family);
 $base-font-size: 16px;
 $medium-font-size: $base-font-size * 0.938;
 $small-font-size: $base-font-size * 0.9375;

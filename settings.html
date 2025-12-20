@@ -47,16 +47,88 @@ comments: false
     </div>
   </div>
   
+  <div class="font-selector">
+    <h3>Select Font</h3>
+    <div class="font-options">
+      <div class="font-option" data-font="JetBrains Mono">
+        <span style="font-family: 'JetBrains Mono', monospace;">JetBrains Mono</span>
+      </div>
+      <div class="font-option" data-font="Fira Code">
+        <span style="font-family: 'Fira Code', monospace;">Fira Code</span>
+      </div>
+      <div class="font-option" data-font="VT323">
+        <span style="font-family: 'VT323', monospace;">VT323</span>
+      </div>
+      <div class="font-option" data-font="Share Tech Mono">
+        <span style="font-family: 'Share Tech Mono', monospace;">Share Tech Mono</span>
+      </div>
+      <div class="font-option" data-font="Ubuntu Mono">
+        <span style="font-family: 'Ubuntu Mono', monospace;">Ubuntu Mono</span>
+      </div>
+      <div class="font-option" data-font="SUSE">
+        <span style="font-family: 'SUSE', monospace;">SUSE Mono</span>
+      </div>
+    </div>
+  </div>
+
   <div class="settings-info">
-    <p>Your theme preference will be saved and applied across all pages.</p>
+    <p>Your theme and font preferences will be saved and applied across all pages.</p>
   </div>
 </div>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Fira+Code:wght@400;700&family=VT323&family=Share+Tech+Mono&family=Ubuntu+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@400;700&display=swap');
+
 .settings-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 20px;
+}
+
+.font-selector {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.font-selector h3 {
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+
+.font-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.font-option {
+  padding: 20px;
+  border: 2px solid var(--border-color);
+  cursor: pointer !important;
+  transition: all 0.3s ease;
+  text-align: center;
+  background: var(--bg-secondary);
+  position: relative;
+  z-index: 10;
+  pointer-events: auto !important;
+}
+
+.font-option:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  background: var(--bg-primary);
+}
+
+.font-option.active {
+  border-color: var(--accent-color);
+  background: var(--bg-primary);
+}
+
+.font-option span {
+  font-size: 1.1em;
+  pointer-events: none;
+  display: block;
 }
 
 .settings-title {
@@ -162,7 +234,10 @@ comments: false
 </style>
 
 <script>
+console.log('=== SETTINGS PAGE SCRIPT LOADED ===');
+
 (function() {
+  console.log('Theme selector IIFE started');
   function initThemeSelector() {
     var themeOptions = document.querySelectorAll('.theme-option');
     var currentTheme = localStorage.getItem('siteTheme') || 'default';
@@ -207,3 +282,7 @@ comments: false
   }
 })();
 </script>
+
+
+<!-- Font Selector External Script -->
+<script src="/assets/js/font-selector.js"></script>

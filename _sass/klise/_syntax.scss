@@ -7,7 +7,7 @@ pre.highlight, pre {
   padding: 20px;
   display: block;
   overflow-x: auto;
-  font-family: $mono-family;
+  font-family: var(--font-family);
   line-height: 1.6;
 
   @include media-query($on-mobile) {
