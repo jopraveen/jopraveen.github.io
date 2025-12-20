@@ -28,14 +28,14 @@ body[data-theme="default"] {
 // Dark Theme
 html[data-theme="dark"],
 body[data-theme="dark"] {
-  --bg-primary: #000000;
+  --bg-primary: #0d0d0d;
   --bg-secondary: #1a1a1a;
-  --text-primary: #ffffff;
-  --text-secondary: #666666;
-  --accent-color: #0099ff;
-  --accent-hover: #0077cc;
-  --border-color: #ffffff;
-  --string-color: #ffff00;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent-color: #4da6ff;
+  --accent-hover: #66b3ff;
+  --border-color: #333333;
+  --string-color: #ffa500;
 }
 
 // Light Theme

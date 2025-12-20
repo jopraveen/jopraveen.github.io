@@ -12,13 +12,13 @@ comments: false
   <div class="theme-selector">
     <h3>Select Theme</h3>
     <div class="theme-options">
-      <div class="theme-option" data-theme="default">
-        <div class="theme-preview theme-preview-default"></div>
-        <span>Default Dark</span>
-      </div>
       <div class="theme-option" data-theme="light">
         <div class="theme-preview theme-preview-light"></div>
         <span>Light Mode</span>
+      </div>
+      <div class="theme-option" data-theme="dark">
+        <div class="theme-preview theme-preview-dark"></div>
+        <span>Dark Mode</span>
       </div>
       <div class="theme-option" data-theme="cyberpunk">
         <div class="theme-preview theme-preview-cyberpunk"></div>
@@ -106,6 +106,10 @@ comments: false
 
 .theme-preview-default {
   background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.theme-preview-dark {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
 }
 
 .theme-preview-light {
