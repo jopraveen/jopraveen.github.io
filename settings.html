@@ -1,0 +1,205 @@
+---
+title: Settings
+permalink: /settings/
+layout: page
+excerpt: Customize your theme preferences
+comments: false
+---
+
+<div class="settings-container">
+  <h2 class="settings-title">Theme Settings</h2>
+  
+  <div class="theme-selector">
+    <h3>Select Theme</h3>
+    <div class="theme-options">
+      <div class="theme-option" data-theme="default">
+        <div class="theme-preview theme-preview-default"></div>
+        <span>Default Dark</span>
+      </div>
+      <div class="theme-option" data-theme="light">
+        <div class="theme-preview theme-preview-light"></div>
+        <span>Light Mode</span>
+      </div>
+      <div class="theme-option" data-theme="cyberpunk">
+        <div class="theme-preview theme-preview-cyberpunk"></div>
+        <span>Cyberpunk</span>
+      </div>
+      <div class="theme-option" data-theme="matrix">
+        <div class="theme-preview theme-preview-matrix"></div>
+        <span>Matrix</span>
+      </div>
+      <div class="theme-option" data-theme="midnight">
+        <div class="theme-preview theme-preview-midnight"></div>
+        <span>Midnight Blue</span>
+      </div>
+      <div class="theme-option" data-theme="terminal">
+        <div class="theme-preview theme-preview-terminal"></div>
+        <span>Terminal Green</span>
+      </div>
+      <div class="theme-option" data-theme="hacker">
+        <div class="theme-preview theme-preview-hacker"></div>
+        <span>Hacker Red</span>
+      </div>
+      <div class="theme-option" data-theme="light-blue">
+        <div class="theme-preview theme-preview-light-blue"></div>
+        <span>Light Blue</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="settings-info">
+    <p>Your theme preference will be saved and applied across all pages.</p>
+  </div>
+</div>
+
+<style>
+.settings-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.settings-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.theme-selector h3 {
+  margin-bottom: 30px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.theme-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.theme-option {
+  cursor: pointer;
+  text-align: center;
+  padding: 15px;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.theme-option:hover {
+  border-color: var(--accent-color, #00ff00);
+}
+
+.theme-option.active {
+  border-color: var(--accent-color, #00ff00);
+}
+
+.theme-preview {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  border: 2px solid #333;
+}
+
+.theme-preview-default {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.theme-preview-light {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+}
+
+.theme-preview-light-blue {
+  background: linear-gradient(135deg, #e6f2ff 0%, #cce5ff 100%);
+}
+
+.theme-preview-cyberpunk {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 100%);
+}
+
+.theme-preview-matrix {
+  background: linear-gradient(135deg, #001a00 0%, #003300 100%);
+}
+
+.theme-preview-midnight {
+  background: linear-gradient(135deg, #000a1a 0%, #001a33 100%);
+}
+
+.theme-preview-terminal {
+  background: linear-gradient(135deg, #0d1b0d 0%, #1a331a 100%);
+}
+
+.theme-preview-hacker {
+  background: linear-gradient(135deg, #1a0000 0%, #330000 100%);
+}
+
+.theme-option span {
+  display: block;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.settings-info {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 1px solid #333;
+}
+
+.settings-info p {
+  color: #666;
+  font-size: 0.9em;
+}
+</style>
+
+<script>
+(function() {
+  function initThemeSelector() {
+    var themeOptions = document.querySelectorAll('.theme-option');
+    var currentTheme = localStorage.getItem('siteTheme') || 'default';
+    
+    console.log('Current theme:', currentTheme);
+    
+    themeOptions.forEach(function(option) {
+      if (option.dataset.theme === currentTheme) {
+        option.classList.add('active');
+      }
+      
+      option.addEventListener('click', function() {
+        var selectedTheme = this.dataset.theme;
+        
+        console.log('Theme selected:', selectedTheme);
+        
+        themeOptions.forEach(function(opt) {
+          opt.classList.remove('active');
+        });
+        
+        this.classList.add('active');
+        
+        localStorage.setItem('siteTheme', selectedTheme);
+        
+        document.body.setAttribute('data-theme', selectedTheme);
+        document.documentElement.setAttribute('data-theme', selectedTheme);
+        
+        var span = this.querySelector('span');
+        var originalText = span.textContent;
+        span.textContent = '✓ Applied';
+        setTimeout(function() {
+          span.textContent = originalText;
+        }, 1500);
+      });
+    });
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeSelector);
+  } else {
+    initThemeSelector();
+  }
+})();
+</script>

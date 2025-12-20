@@ -1,47 +1,28 @@
-// Code
-code {
-  font-family: $mono-family;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "calt" 1;
-  font-variant-ligatures: normal;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  font-size: inherit;
-
-  &.highlighter-rouge {
-    padding: 1px 3px;
-    position: relative;
-    top: -1px;
-    background-color: #f6f6f6;
-    border-radius: 2px;
-    border: 1px solid rgba(128,128,128,0.1);
-  }
-}
-
-// Codeblock Theme
+// Codeblock Theme - Minimal Sharp Dark
 pre.highlight, pre {
-  margin: 0 -27px;
-  @include media-query($on-mobile) {
-    margin: 0 calc(51% - 51vw);
-    padding-left: 20px;
-  }
-  border: 1px solid rgba(128,128,128,0.1);
-  background-color: #1a1b21;
-  border-radius: 2px;
-  padding: 10px;
+  position: relative;
+  margin: 30px 0;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  padding: 20px;
   display: block;
   overflow-x: auto;
+  font-family: $mono-family;
+  line-height: 1.6;
+
+  @include media-query($on-mobile) {
+    padding: 15px;
+    margin: 20px -10px;
+  }
 
   > code {
     width: 100%;
-    max-width: 50rem;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
+    line-height: 1.6;
     display: block;
     border: 0;
+    background-color: transparent;
+    color: var(--text-primary);
+    font-size: $base-font-size;
   }
 }
 
@@ -51,17 +32,17 @@ pre.highlight, pre {
 
 .highlight table pre {
   margin: 0;
+  border: 0;
 }
 
+// Syntax highlighting - Minimal terminal theme
 .highlight,
 .highlight .w {
-  color: #fbf1c7;
-  // background-color: #1a1b21;
+  color: var(--text-primary);
 }
 
 .highlight .err {
-  color: #fb4934;
-  // background-color: #1a1b21;
+  color: #ff0000;
   font-weight: bold;
 }
 
@@ -70,40 +51,40 @@ pre.highlight, pre {
 .highlight .cm,
 .highlight .c1,
 .highlight .cs {
-  color: #928374;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
 .highlight .cp {
-  color: #8ec07c;
+  color: var(--accent-color);
 }
 
 .highlight .nt {
-  color: #fb4934;
+  color: var(--accent-color);
 }
 
 .highlight .o,
 .highlight .ow {
-  color: #fbf1c7;
+  color: var(--text-primary);
 }
 
 .highlight .p,
 .highlight .pi {
-  color: #fbf1c7;
+  color: var(--text-primary);
 }
 
 .highlight .gi {
-  color: #b8bb26;
-  background-color: #282828;
+  color: var(--accent-color);
+  background-color: transparent;
 }
 
 .highlight .gd {
-  color: #fb4934;
-  background-color: #282828;
+  color: #ff0000;
+  background-color: transparent;
 }
 
 .highlight .gh {
-  color: #b8bb26;
+  color: var(--text-primary);
   font-weight: bold;
 }
 
@@ -112,19 +93,20 @@ pre.highlight, pre {
 .highlight .kp,
 .highlight .kr,
 .highlight .kv {
-  color: #fb4934;
+  color: var(--accent-color);
+  font-weight: bold;
 }
 
 .highlight .kc {
-  color: #d3869b;
+  color: var(--accent-color);
 }
 
 .highlight .kt {
-  color: #fabd2f;
+  color: var(--accent-color);
 }
 
 .highlight .kd {
-  color: #fe8019;
+  color: var(--accent-color);
 }
 
 .highlight .s,
@@ -135,38 +117,36 @@ pre.highlight, pre {
 .highlight .sh,
 .highlight .sx,
 .highlight .s1 {
-  color: #b8bb26;
-  font-style: italic;
-}
-
-.highlight .si {
-  color: #b8bb26;
-  font-style: italic;
+  color: var(--string-color);
 }
 
 .highlight .sr {
-  color: #b8bb26;
-  font-style: italic;
+  color: var(--string-color);
+}
+
+.highlight .si {
+  color: var(--string-color);
 }
 
 .highlight .se {
-  color: #fe8019;
+  color: var(--accent-color);
 }
 
 .highlight .nn {
-  color: #8ec07c;
+  color: var(--text-primary);
 }
 
 .highlight .nc {
-  color: #8ec07c;
+  color: var(--text-primary);
+  font-weight: bold;
 }
 
 .highlight .no {
-  color: #d3869b;
+  color: var(--accent-color);
 }
 
 .highlight .na {
-  color: #b8bb26;
+  color: var(--text-primary);
 }
 
 .highlight .m,
@@ -177,9 +157,9 @@ pre.highlight, pre {
 .highlight .mo,
 .highlight .mb,
 .highlight .mx {
-  color: #d3869b;
+  color: var(--string-color);
 }
 
 .highlight .ss {
-  color: #83a598;
+  color: var(--accent-color);
 }

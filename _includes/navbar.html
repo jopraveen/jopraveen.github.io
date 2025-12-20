@@ -1,44 +1,13 @@
-<!-- support this site -->
-<!--   <div style="z-index: 9;position: absolute;margin-left: 20px;margin-top: 10px" id="toast-message-cta" class="w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-400" role="alert">
-      <div class="flex">
-          <img class="w-8 h-8 rounded-full shadow-lg" src="{{site.author.avatar}}" alt="Jese Leos image"/>
-          <div class="ml-3 text-sm font-normal">
-              <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">Jopraveen</span>
-              <div class="mb-2 text-sm font-normal">Hey, thanks for comming here.</div> 
-              <a style="color: #fff" href="#" class="inline-flex px-2.5 py-1.5 text-xs font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800">Support this site</a>   
-          </div>
-          <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-message-cta" aria-label="Close">
-              <span class="sr-only">Close</span>
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-          </button>
-      </div>
-  </div> -->
-
-<!-- font change via hackthebox -->
-<div hidden>
-  <script src="https://www.hackthebox.eu/badge/190694"></script>
-</div>
-
 <div class="navbar" role="navigation">
   <nav class="menu">
+    <div class="menu-left">
+      <a href="/" class="site-title">{{ site.title }}</a>
+    </div>
+    
     <input type="checkbox" id="menu-trigger" class="menu-trigger" />
     <label for="menu-trigger">
-      <span class="menu-icon">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"
-          />
-        </svg>
-      </span>
+      <span class="menu-icon">MENU</span>
     </label>
-    <a id="mode">
-      <img class="w-8 h-8 p-1 rounded-full ring-2 ring-gray-300 dark:ring-blue-400" src="{{ site.author.avatar }}" alt="Bordered avatar">
-    </a>
 
     <div class="trigger">
       <div class="trigger-container">
@@ -47,47 +16,21 @@
         {%- if menus %}
           {%- for menu in menus -%} 
             {%- if url == menu.url -%}
-              <a class="menu-link active" href="{{ menu.url }}">{{ menu.title }}</a>
+              <a class="menu-link active" href="{{ menu.url }}">[{{ menu.title }}]</a>
             {%- else -%} 
               {%- if menu.external -%}
-                <a
-                  class="menu-link"
-                  href="{{ menu.url }}"
-                  target="_blank"
-                  rel="noopener"
-                  >{{ menu.title }}</a
-                >
+                <a class="menu-link" href="{{ menu.url }}" target="_blank" rel="noopener">[{{ menu.title }}]</a>
               {%- else -%}
-                <a class="menu-link" href="{{ menu.url }}">{{ menu.title }}</a>
+                <a class="menu-link" href="{{ menu.url }}">[{{ menu.title }}]</a>
               {%- endif -%} 
             {%- endif -%} 
           {%- endfor -%}
         {%- else -%}
-          <a class="menu-link {% if url == '/' %}active{% endif %}" href="/">home</a>
-<!--           <a class="menu-link {% if url == '/tags/' %}active{% endif %}" href="/tags">tags</a> -->
-          <a class="menu-link {% if url == '/about/' %}active{% endif %}" href="/about">about</a>
+          <a class="menu-link {% if url == '/' %}active{% endif %}" href="/">[HOME]</a>
+          <a class="menu-link {% if url == '/about/' %}active{% endif %}" href="/about">[ABOUT]</a>
+          <a class="menu-link {% if url == '/archive/' %}active{% endif %}" href="/archive">[ARCHIVE]</a>
+          <a class="menu-link {% if url == '/settings/' %}active{% endif %}" href="/settings">[SETTINGS]</a>
         {%- endif -%}
-
-        <!-- icons -->
-        <a class="menu-link rss" target="_blank" href="https://github.com/jopraveen">
-          <ion-icon name="logo-github"></ion-icon>
-        </a>
-        <a class="menu-link rss" target="_blank" href="https://www.hackthebox.com/home/users/profile/190694">
-          <ion-icon name="cube-outline"></ion-icon>
-        </a>
-        <a class="menu-link rss" target="_blank" href="https://discordapp.com/users/832825634719662090">
-          <ion-icon name="logo-discord"></ion-icon>
-        </a>
-        <a class="menu-link rss" target="_blank" href="https://twitter.com/jopraveen18">
-          <ion-icon name="logo-twitter"></ion-icon>
-        </a>
-        <a class="menu-link rss" target="_blank" href="https://linkedin.com/in/jopraveen/">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a>
-        <a class="menu-link rss" target="_blank" href="/feed.xml">
-          <ion-icon name="logo-rss"></ion-icon>
-        </a>
-
       </div>
     </div>
   </nav>

@@ -273,6 +273,8 @@ print(colored('-'*80,'magenta',attrs=["bold"]))
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/50TLI0NOj0c?si=PNI6w9b6LB27qDpP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<br>
+
 <img src="https://camo.githubusercontent.com/2c97825d982590720f64e9b7af34f6a6e69b741eadc90863b509a8df0d036317/68747470733a2f2f6861636b6d642e696f2f5f75706c6f6164732f724a42666b53354b4a782e706e67"> <br>
 
 

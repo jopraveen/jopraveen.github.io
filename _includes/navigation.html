@@ -1,16 +1,25 @@
 <nav class="post-nav">
   {% if page.previous %}
-  <a
-    class="post-nav-item post-nav-prev"
-    href="{{ page.previous | relative_url }}"
-  >
-    <div class="nav-arrow">Previous</div>
+  <a class="post-nav-item post-nav-prev" href="{{ page.previous | relative_url }}">
+    <div class="nav-label">
+      <span class="nav-arrow">←</span>
+      <span class="nav-text">Previous Post</span>
+    </div>
     <span class="post-title">{{ page.previous.title }}</span>
   </a>
-  {% endif %} {% if page.next %}
+  {% else %}
+  <div class="post-nav-item post-nav-empty"></div>
+  {% endif %}
+  
+  {% if page.next %}
   <a class="post-nav-item post-nav-next" href="{{ page.next | relative_url }}">
-    <div class="nav-arrow">Next</div>
+    <div class="nav-label">
+      <span class="nav-text">Next Post</span>
+      <span class="nav-arrow">→</span>
+    </div>
     <span class="post-title">{{ page.next.title }}</span>
   </a>
+  {% else %}
+  <div class="post-nav-item post-nav-empty"></div>
   {% endif %}
 </nav>

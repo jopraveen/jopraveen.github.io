@@ -5,25 +5,16 @@ layout: compress
 <html lang="{{ page.lang | default: site.lang | default: " en " }}">
 {% include header.html %}
 
-<body data-theme="{{ site.mode }}" class="notransition">
+<body data-theme="default" class="notransition">
 
   <script>
     const body = document.body;
-    const data = body.getAttribute("data-theme");
-
-    const initTheme = (state) => {
-      if (state === "dark") {
-        body.setAttribute("data-theme", "dark");
-      } else if (state === "light") {
-        body.removeAttribute("data-theme");
-      } else {
-        localStorage.setItem("theme", data);
-      }
-    };
- 
-    initTheme(localStorage.getItem("theme"));
+    const savedTheme = localStorage.getItem('siteTheme') || 'default';
     
-    setTimeout(() => body.classList.remove("notransition"), 75);
+    // Apply saved theme immediately
+    body.setAttribute('data-theme', savedTheme);
+    
+    setTimeout(() => body.classList.remove('notransition'), 75);
   </script>
 
   {% include navbar.html %}

@@ -1,0 +1,339 @@
+// Theme variants - CSS custom properties for each theme
+:root,
+html,
+body {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --accent-color: #0099ff;
+  --accent-hover: #0077cc;
+  --border-color: #000000;
+  --string-color: #cc6600;
+}
+
+// Default Light Theme
+html[data-theme="default"],
+body[data-theme="default"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --accent-color: #0099ff;
+  --accent-hover: #0077cc;
+  --border-color: #000000;
+  --string-color: #cc6600;
+}
+
+// Light Theme
+html[data-theme="light"],
+body[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --accent-color: #0066cc;
+  --accent-hover: #004499;
+  --border-color: #000000;
+  --string-color: #cc6600;
+}
+
+// Light Blue Theme
+html[data-theme="light-blue"],
+body[data-theme="light-blue"] {
+  --bg-primary: #e6f2ff;
+  --bg-secondary: #cce5ff;
+  --text-primary: #001a33;
+  --text-secondary: #004080;
+  --accent-color: #0066cc;
+  --accent-hover: #004499;
+  --border-color: #003366;
+  --string-color: #cc3300;
+}
+
+// Cyberpunk Theme (Pink/Purple)
+html[data-theme="cyberpunk"],
+body[data-theme="cyberpunk"] {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a0a1a;
+  --text-primary: #ff00ff;
+  --text-secondary: #9933ff;
+  --accent-color: #ff0099;
+  --accent-hover: #cc0077;
+  --border-color: #ff00ff;
+}
+
+// Matrix Theme (Green on Black)
+html[data-theme="matrix"],
+body[data-theme="matrix"] {
+  --bg-primary: #001a00;
+  --bg-secondary: #003300;
+  --text-primary: #00ff00;
+  --text-secondary: #00aa00;
+  --accent-color: #33ff33;
+  --accent-hover: #00cc00;
+  --border-color: #00ff00;
+}
+
+// Midnight Blue Theme
+html[data-theme="midnight"],
+body[data-theme="midnight"] {
+  --bg-primary: #000a1a;
+  --bg-secondary: #001a33;
+  --text-primary: #66ccff;
+  --text-secondary: #3399cc;
+  --accent-color: #00ccff;
+  --accent-hover: #0099cc;
+  --border-color: #66ccff;
+}
+
+// Terminal Green Theme
+html[data-theme="terminal"],
+body[data-theme="terminal"] {
+  --bg-primary: #0d1b0d;
+  --bg-secondary: #1a331a;
+  --text-primary: #33ff33;
+  --text-secondary: #66ff66;
+  --accent-color: #00ff00;
+  --accent-hover: #00cc00;
+  --border-color: #33ff33;
+}
+
+// Hacker Red Theme
+html[data-theme="hacker"],
+body[data-theme="hacker"] {
+  --bg-primary: #1a0000;
+  --bg-secondary: #330000;
+  --text-primary: #ff3333;
+  --text-secondary: #cc0000;
+  --accent-color: #ff0000;
+  --accent-hover: #cc0000;
+  --border-color: #ff3333;
+}
+
+// Apply theme variables to elements
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.navbar {
+  background-color: var(--bg-primary);
+  border-bottom-color: var(--border-color);
+}
+
+.menu-link {
+  color: var(--text-primary);
+  
+  &:hover {
+    border-color: var(--border-color);
+    background-color: var(--border-color);
+    color: var(--bg-primary);
+  }
+  
+  &.active {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+  }
+}
+
+.site-title {
+  color: var(--text-primary);
+  
+  &:hover {
+    color: var(--accent-color);
+  }
+}
+
+.author-name {
+  color: var(--text-primary);
+}
+
+.author-bio,
+.author p {
+  color: var(--text-secondary);
+}
+
+.posts-item-note {
+  color: var(--text-primary);
+  border-bottom-color: var(--border-color);
+}
+
+.post-item {
+  border-bottom-color: var(--bg-secondary);
+  
+  &:hover {
+    background-color: var(--bg-secondary);
+  }
+  
+  .post-item-date {
+    color: var(--text-secondary);
+  }
+  
+  .post-item-title a {
+    color: var(--text-primary);
+    
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+}
+
+.footer {
+  border-top-color: var(--border-color);
+  
+  span.footer_item {
+    color: var(--text-primary);
+  }
+  
+  a.footer_item {
+    color: var(--text-primary);
+    
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+  
+  .footer_copyright {
+    color: var(--text-secondary);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+h2 {
+  border-bottom-color: var(--border-color);
+}
+
+a {
+  color: var(--accent-color);
+  
+  &:hover {
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-hover);
+  }
+}
+
+code {
+  background-color: var(--bg-secondary);
+  color: var(--accent-color);
+  border-color: var(--bg-secondary);
+}
+
+pre {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  
+  code {
+    color: var(--text-primary);
+  }
+}
+
+blockquote {
+  color: var(--text-secondary);
+  border-left-color: var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+table {
+  border-color: var(--border-color);
+  
+  thead {
+    color: var(--bg-primary);
+    background-color: var(--border-color);
+  }
+  
+  th, td, tr {
+    border-color: var(--border-color);
+  }
+  
+  tbody tr:hover {
+    background-color: var(--bg-secondary);
+  }
+}
+
+kbd {
+  border-color: var(--border-color);
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+}
+
+hr {
+  border-top-color: var(--bg-secondary);
+}
+
+.post-meta {
+  color: var(--text-secondary);
+  border-top-color: var(--bg-secondary);
+  border-bottom-color: var(--bg-secondary);
+}
+
+.header .tags .tag {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+  }
+}
+
+.post-nav {
+  border-top-color: var(--border-color);
+  border-bottom-color: var(--border-color);
+  
+  .post-nav-item {
+    color: var(--text-primary);
+    
+    &:hover .post-title {
+      color: var(--accent-color);
+    }
+    
+    .nav-arrow {
+      color: var(--text-secondary);
+    }
+    
+    .post-title {
+      color: var(--text-primary);
+    }
+  }
+}
+
+.search-article input[type="search"] {
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  border-color: var(--bg-secondary);
+  
+  &:focus {
+    border-color: var(--border-color);
+  }
+  
+  &::-webkit-input-placeholder {
+    color: var(--text-secondary);
+  }
+}
+
+.archive-tags .tag-item {
+  border-color: var(--border-color);
+  color: var(--text-primary);
+  
+  &:hover {
+    background-color: var(--border-color);
+    color: var(--bg-primary);
+  }
+}
+
+// Syntax highlighting uses theme colors
+.highlight {
+  color: var(--text-primary);
+  
+  .k, .kn, .kp, .kr, .kv, .kc, .kt, .kd {
+    color: var(--accent-color);
+  }
+  
+  .c, .cd, .cm, .c1, .cs {
+    color: var(--text-secondary);
+  }
+}

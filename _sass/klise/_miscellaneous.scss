@@ -1,22 +1,22 @@
-// Animation fade-in
+// No animations - instant loading
 @keyframes fadein {
   0% {
-    opacity: 0.2;
+    opacity: 1;
   }
 
   100% {
-    opacity: 0.8;
+    opacity: 1;
   }
 }
 
-// Animation blur
+// No blur effects
 @keyframes blur {
   0% {
     filter: blur(0px);
   }
 
   100% {
-    filter: blur(4px);
+    filter: blur(0px);
   }
 }
 
@@ -28,6 +28,7 @@
   position: relative;
   padding-bottom: 56.25%;
   margin-top: 20px;
+  border: 2px solid $dark-white;
 
   iframe,
   object,
