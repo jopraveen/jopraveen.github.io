@@ -154,6 +154,11 @@
     color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 2px;
+    
+    @include media-query($on-mobile) {
+      font-size: 1.5em;
+      letter-spacing: 1px;
+    }
   }
 
   .author-bio,
@@ -600,6 +605,10 @@
   font-weight: $bold-weight;
   text-transform: none;
   letter-spacing: 0.5px;
+
+  @include media-query($on-mobile) {
+    font-size: 1.1em;
+  }
 
   a {
     color: var(--text-primary);

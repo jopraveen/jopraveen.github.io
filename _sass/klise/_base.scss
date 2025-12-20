@@ -116,6 +116,10 @@ body {
   -webkit-font-smoothing: antialiased;
   font-kerning: normal;
   box-sizing: border-box;
+  
+  @include media-query($on-mobile) {
+    font-size: $mobile-base-font-size;
+  }
 }
 
 // Set `margin-bottom` to maintain vertical rhythm
@@ -277,6 +281,11 @@ h1 {
   font-size: 2em;
   margin-top: 40px;
   margin-bottom: 20px;
+  
+  @include media-query($on-mobile) {
+    font-size: 1.6em;
+    margin-top: 30px;
+  }
 }
 
 h2 {
@@ -285,12 +294,21 @@ h2 {
   margin-bottom: 15px;
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 10px;
+  
+  @include media-query($on-mobile) {
+    font-size: 1.3em;
+    margin-top: 25px;
+  }
 }
 
 h3 {
   font-size: 1.2em;
   margin-top: 30px;
   margin-bottom: 15px;
+  
+  @include media-query($on-mobile) {
+    font-size: 1.1em;
+  }
 }
 
 h4, h5, h6 {

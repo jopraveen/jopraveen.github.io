@@ -25,6 +25,19 @@ body[data-theme="default"] {
   --string-color: #cc6600;
 }
 
+// Dark Theme
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --bg-primary: #000000;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #666666;
+  --accent-color: #0099ff;
+  --accent-hover: #0077cc;
+  --border-color: #ffffff;
+  --string-color: #ffff00;
+}
+
 // Light Theme
 html[data-theme="light"],
 body[data-theme="light"] {

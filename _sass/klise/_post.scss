@@ -74,7 +74,8 @@
     letter-spacing: 2px;
 
     @include media-query($on-mobile) {
-      font-size: 2em;
+      font-size: 1.5em;
+      letter-spacing: 1px;
     }
   }
 }

@@ -10,10 +10,10 @@ comments: false
   <label for="search-input" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(128,128,128,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
   </label>
-  <input type="search" id="search-input" placeholder="Filter articles by name" aria-label="Search">
+  <input type="search" id="search-input" placeholder="Search across all posts (title, content, tags...)" aria-label="Search">
 </div>
 
-<ul id="search-results"></ul>
+<div id="search-results"></div>
 
 <hr class="archive-separator">
 
@@ -67,3 +67,35 @@ comments: false
     </article>
 {%- endfor -%}
 </div>
+
+<script src="{{ '/assets/js/search.min.js' | relative_url }}"></script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('search-results'),
+    json: '/assets/search.json',
+    searchFields: ['title', 'content', 'excerpt', 'tags', 'categories'],
+    searchResultTemplate: '<article class="blog-card"><div class="blog-card-header"><h3 class="blog-card-title"><a href="{url}">{title}</a></h3><span class="blog-card-date">{date}</span></div><p class="blog-card-excerpt">{excerpt}</p><div class="blog-card-tags">{tags}</div><a href="{url}" class="blog-card-link">Read more →</a></article>',
+    noResultsText: '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No posts found matching your search.</div>',
+    limit: 50,
+    fuzzy: false,
+    exclude: [],
+    success: function() {
+      const blogGrid = document.querySelector('.blog-grid');
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+      
+      searchInput.addEventListener('input', function(e) {
+        if (e.target.value.length > 0) {
+          blogGrid.style.display = 'none';
+          searchResults.style.display = 'grid';
+          searchResults.style.gridTemplateColumns = '1fr';
+          searchResults.style.gap = '30px';
+        } else {
+          blogGrid.style.display = 'grid';
+          searchResults.style.display = 'none';
+        }
+      });
+    }
+  });
+</script>
