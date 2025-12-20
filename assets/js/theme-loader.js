@@ -1,20 +1,30 @@
-// Theme loader - Load saved theme on page load
+// Theme loader - Load saved theme, else follow system theme
 (function() {
-  // Load theme from localStorage
-  const savedTheme = localStorage.getItem('siteTheme') || 'default';
-  
-  console.log('Loading theme:', savedTheme);
-  
-  // Apply theme immediately (before page renders)
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  
+  const savedTheme = localStorage.getItem('siteTheme');
+
+  const prefersDark = (() => {
+    try {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } catch (_) {
+      return false;
+    }
+  })();
+
+  // Map system preference to your theme names
+  const systemTheme = prefersDark ? 'dark' : 'default';
+  const themeToApply = savedTheme || systemTheme;
+
+  // Apply theme immediately (before CSS renders)
+  document.documentElement.setAttribute('data-theme', themeToApply);
+
   // Also set on body when it's available
+  const applyToBody = () => {
+    if (document.body) document.body.setAttribute('data-theme', themeToApply);
+  };
+
   if (document.body) {
-    document.body.setAttribute('data-theme', savedTheme);
+    applyToBody();
   } else {
-    window.addEventListener('DOMContentLoaded', function() {
-      document.body.setAttribute('data-theme', savedTheme);
-      console.log('Theme applied to body:', savedTheme);
-    });
+    window.addEventListener('DOMContentLoaded', applyToBody);
   }
 })();

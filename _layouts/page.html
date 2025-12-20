@@ -11,11 +11,14 @@ layout: compress
 
   <script>
     const body = document.body;
-    const savedTheme = localStorage.getItem('siteTheme') || 'default';
+    const savedTheme = localStorage.getItem('siteTheme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const themeToApply = savedTheme || (prefersDark ? 'dark' : 'default');
     const savedFont = localStorage.getItem('siteFont') || 'JetBrains Mono';
     
     // Apply saved theme immediately
-    body.setAttribute('data-theme', savedTheme);
+    body.setAttribute('data-theme', themeToApply);
+    document.documentElement.setAttribute('data-theme', themeToApply);
     
     // Apply saved font globally with injected stylesheet
     const fontString = "'" + savedFont + "', monospace";

@@ -240,7 +240,9 @@ console.log('=== SETTINGS PAGE SCRIPT LOADED ===');
   console.log('Theme selector IIFE started');
   function initThemeSelector() {
     var themeOptions = document.querySelectorAll('.theme-option');
-    var currentTheme = localStorage.getItem('siteTheme') || 'default';
+    var savedTheme = localStorage.getItem('siteTheme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var currentTheme = savedTheme || (prefersDark ? 'dark' : 'default');
     
     console.log('Current theme:', currentTheme);
     
