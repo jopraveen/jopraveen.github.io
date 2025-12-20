@@ -454,6 +454,23 @@
   .phrase {
     color: var(--text-primary);
   }
+
+  .not-found-gif {
+    display: block;
+    width: 240px;
+    max-width: 80vw;
+    margin: 18px auto;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-secondary);
+  }
+
+  .not-found-actions {
+    margin-top: 14px;
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
   
   .solution {
     color: var(--accent-color);

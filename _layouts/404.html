@@ -45,8 +45,13 @@ layout: compress
       <div class="not-found">
         <div class="container">
           <div class="title">404</div>
-          <p class="phrase">😕 Hmm... Seems you lost from my journey.</p>
-          <a class="solution" href="{{ site.url }}">back home</a>
+          <p class="phrase">I have lost it. The page you wanted ran away.</p>
+          <img class="not-found-gif" src="https://media.tenor.com/6tRflNOJgjoAAAAC/i-have-lost-it-cat.gif" alt="Confused cat" loading="lazy" />
+          <p class="phrase">Try going back home (safe) or jump into the archive.</p>
+          <div class="not-found-actions">
+            <a class="solution" href="{{ '/' | relative_url }}">back home</a>
+            <a class="solution" href="{{ '/archive/' | relative_url }}">search posts</a>
+          </div>
         </div>
       </div>
     </main>  
