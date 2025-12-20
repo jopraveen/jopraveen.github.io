@@ -342,4 +342,213 @@
   } else {
     initPostExtras();
   }
+
+  // Ctrl+K Quick Search (global)
+  const initQuickSearch = () => {
+    const root = document.getElementById('quick-search');
+    const input = document.getElementById('quick-search-input');
+    const results = document.getElementById('quick-search-results');
+    const status = document.getElementById('quick-search-status');
+
+    if (!root || !input || !results || !status) return;
+
+    let isOpen = false;
+    let postsCache = null;
+    let loading = null;
+    let lastFocused = null;
+
+    const positionModalBelowNavbar = () => {
+      const modal = root.querySelector('.quick-search-modal');
+      if (!modal) return;
+      const navbar = document.querySelector('.navbar');
+      const navbarHeight = navbar ? Math.ceil(navbar.getBoundingClientRect().height) : 0;
+      modal.style.top = `${navbarHeight + 16}px`;
+    };
+
+    const setStatus = (text) => {
+      status.textContent = text || '';
+    };
+
+    const escapeHtml = (s) => String(s || '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
+
+    const ensurePostsLoaded = async () => {
+      if (postsCache) return postsCache;
+      if (loading) return loading;
+
+      setStatus('Loading posts...');
+      loading = fetch('/assets/search.json', { cache: 'no-store' })
+        .then((r) => {
+          if (!r.ok) throw new Error('Failed to load search.json');
+          return r.json();
+        })
+        .then((data) => {
+          postsCache = Array.isArray(data) ? data : [];
+          return postsCache;
+        })
+        .catch(() => {
+          postsCache = [];
+          setStatus('Could not load search index.');
+          return postsCache;
+        })
+        .finally(() => {
+          loading = null;
+        });
+
+      return loading;
+    };
+
+    const scorePost = (post, tokens) => {
+      const title = (post.title || '').toLowerCase();
+      const excerpt = (post.excerpt || '').toLowerCase();
+      const content = (post.content || '').toLowerCase();
+      const tags = (post.tags || '').toLowerCase();
+      const categories = (post.categories || '').toLowerCase();
+
+      const hay = `${title} ${excerpt} ${content} ${tags} ${categories}`;
+      for (const t of tokens) {
+        if (!hay.includes(t)) return -1;
+      }
+
+      let score = 0;
+      for (const t of tokens) {
+        if (title.includes(t)) score += 6;
+        if (tags.includes(t) || categories.includes(t)) score += 4;
+        if (excerpt.includes(t)) score += 2;
+        if (content.includes(t)) score += 1;
+      }
+      return score;
+    };
+
+    const renderResults = (items, query) => {
+      if (!query) {
+        results.innerHTML = '';
+        setStatus('Type to search posts.');
+        return;
+      }
+
+      if (!items || items.length === 0) {
+        results.innerHTML = '';
+        setStatus('No results.');
+        return;
+      }
+
+      setStatus(`${items.length} result${items.length === 1 ? '' : 's'}`);
+      results.innerHTML = items.map((p) => {
+        const title = escapeHtml(p.title);
+        const date = escapeHtml(p.date);
+        const excerpt = escapeHtml(p.excerpt);
+        const url = escapeHtml(p.url);
+        return `
+          <a class="quick-search-result" role="listitem" href="${url}">
+            <div class="quick-search-result-title">${title}</div>
+            <div class="quick-search-result-meta">${date}${excerpt ? ` • ${excerpt}` : ''}</div>
+          </a>
+        `;
+      }).join('');
+    };
+
+    const doSearch = async () => {
+      const q = (input.value || '').trim();
+      if (!q) {
+        renderResults([], '');
+        return;
+      }
+
+      const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
+      const posts = await ensurePostsLoaded();
+
+      const scored = [];
+      for (const post of posts) {
+        const s = scorePost(post, tokens);
+        if (s >= 0) scored.push({ post, s });
+      }
+
+      scored.sort((a, b) => b.s - a.s);
+      const top = scored.slice(0, 12).map((x) => x.post);
+      renderResults(top, q);
+    };
+
+    const open = async () => {
+      if (isOpen) return;
+      isOpen = true;
+      lastFocused = document.activeElement;
+      root.hidden = false;
+      positionModalBelowNavbar();
+      setStatus('Type to search posts.');
+      input.value = '';
+      results.innerHTML = '';
+      // Load index in background so first query is fast
+      ensurePostsLoaded();
+      setTimeout(() => input.focus(), 0);
+    };
+
+    const close = () => {
+      if (!isOpen) return;
+      isOpen = false;
+      root.hidden = true;
+      input.value = '';
+      results.innerHTML = '';
+      setStatus('');
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      }
+    };
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      const key = (e.key || '').toLowerCase();
+      if (key === 'escape' && isOpen) {
+        e.preventDefault();
+        close();
+      }
+    }, true);
+
+    // Open via navbar button
+    const openBtn = document.getElementById('quick-search-open');
+    if (openBtn) {
+      openBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        open();
+      });
+    }
+
+    // Input handlers
+    let searchTimer = null;
+    input.addEventListener('input', () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(doSearch, 80);
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const first = results.querySelector('a.quick-search-result');
+        if (first && first.getAttribute('href')) {
+          window.location.href = first.getAttribute('href');
+        }
+      }
+    });
+
+    // Close handlers
+    root.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && target.getAttribute && target.getAttribute('data-qs-close') !== null) {
+        close();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (isOpen) positionModalBelowNavbar();
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initQuickSearch);
+  } else {
+    initQuickSearch();
+  }
 })();

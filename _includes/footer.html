@@ -5,6 +5,25 @@
   </small>
 </footer>
 
+<div class="quick-search" id="quick-search" hidden>
+  <div class="quick-search-overlay" data-qs-close></div>
+  <div class="quick-search-modal" role="dialog" aria-modal="true" aria-label="Quick Search">
+    <div class="quick-search-input-row">
+      <input
+        type="search"
+        id="quick-search-input"
+        class="quick-search-input"
+        placeholder="Search posts..."
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button type="button" class="quick-search-close" data-qs-close aria-label="Close">ESC</button>
+    </div>
+    <div class="quick-search-status" id="quick-search-status"></div>
+    <div class="quick-search-results" id="quick-search-results" role="list"></div>
+  </div>
+</div>
+
 <script src="/assets/js/main.js" defer="defer"></script>
 
 {%- if page.google_analytics -%}
