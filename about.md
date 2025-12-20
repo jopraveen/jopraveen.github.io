@@ -6,15 +6,16 @@ comments: false
 ---
 
 ### `Johans Praveen` &nbsp; *a.k.a* &nbsp; `Jopraveen`
-- Project Trainee at [Zoho](https://zoho.com)
-- Coordinator & CTF player at [TamilCTF](https://ctftime.org/team/128998)
+- Security Researcher at [Zoho](https://zoho.com)
+- CTF player at [Infobahn](https://ctftime.org/team/364723) & [TamilCTF](https://ctftime.org/team/128998)
 - I’m interested in learning low level stuffs.
+- You can ping me in [Twitter](https://x.com/jopraveen18)
 
 ## `Infosec contributions`
 
 <u><b>Created content:</b></u>
 - TryHackMe room [Pwn101](https://tryhackme.com/room/pwn101)
-- Created CTF challenges for two TamilCTF events
+- Created CTF challenges for multiple CTF events
 - Youtube channel with HTB, CTF writeups and Infosec content
 
 <u><b>Talks:</b></u>
@@ -26,15 +27,5 @@ comments: false
 |CTFs & BinExp |Cyberonics|[Youtube](https://youtu.be/eRDOXkUu-70)|24/07/2022|
 |OSINT 101 |The Cyber Crawler|[Youtube](https://youtu.be/IcEgnA7tRfY)|11/12/2022|
 
-
-
-## `Achievements / Notable things`
-
-- Yellow belt in [pwn.college](https://pwn.college/belts) (completed 400+ pwn challenges)
-- Played more than 150+ CTFs in CTFtime, HTB & others
-- Organized a CTF event in my college (May 2022)
-- Attended Nullcon Goa22 conference with my team 
-- Placed #5 position in Nullcon's Winja CTF among 600 teams
-- Won 1st prize in **Hackers Era CTF** in Held in VCET college
 
 <br>
