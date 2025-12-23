@@ -90,3 +90,11 @@ plugins:
   - jekyll-sitemap
   - jekyll-postfiles
   - jekyll-spaceship
+
+# Seasonal snow effect settings
+# Enable gentle snow in selected months (default: December only)
+snow:
+  enabled: false
+  months: [12]
+  # Approximate particle density; higher = more flakes, keep modest
+  density: 80

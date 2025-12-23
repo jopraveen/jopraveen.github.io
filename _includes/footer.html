@@ -26,6 +26,9 @@
 
 <script src="/assets/js/main.js" defer="defer"></script>
 
+<!-- Gentle seasonal snow effect (always loaded, gated by config + user pref) -->
+<script src="/assets/js/snow.js" defer data-enabled="{{ site.snow.enabled | default: false }}" data-months="{{ site.snow.months | join: ',' | default: '12' }}" data-density="{{ site.snow.density | default: 80 }}"></script>
+
 {%- if page.google_analytics -%}
   <script src="/assets/js/galite.js"></script>
   <script>

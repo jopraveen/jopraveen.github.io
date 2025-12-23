@@ -40,3 +40,21 @@
     position: absolute;
   }
 }
+
+// Snow overlay canvas - non-interactive, fixed to viewport
+.snow-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+}
+
+// Respect reduced motion: don't render snow when users prefer it
+@media (prefers-reduced-motion: reduce) {
+  .snow-canvas {
+    display: none;
+  }
+}

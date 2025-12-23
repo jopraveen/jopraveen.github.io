@@ -74,6 +74,20 @@ comments: false
   <div class="settings-info">
     <p>Your theme and font preferences will be saved and applied across all pages.</p>
   </div>
+  
+  <div class="misc-settings">
+    <h3>Misc</h3>
+    <div class="misc-item">
+      <label class="switch">
+        <input type="checkbox" id="toggle-snow" />
+        <span class="slider"></span>
+      </label>
+      <div class="misc-text">
+        <strong>Snowfall</strong>
+        <small>Toggle gentle snow effect</small>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -231,7 +245,82 @@ comments: false
   color: #666;
   font-size: 0.9em;
 }
+
+.misc-settings {
+  margin-top: 40px;
+}
+
+.misc-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.misc-text strong {
+  display: block;
+}
+
+.misc-text small {
+  color: #777;
+}
+
+/* Simple toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  transition: 0.2s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 5px;
+  top: 3px;
+  background-color: var(--accent-color, #00ff00);
+  transition: 0.2s;
+}
+
+input:checked + .slider {
+  background-color: var(--bg-primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+.slider {
+  border-radius: 20px;
+}
+
+.slider:before {
+  border-radius: 50%;
+}
 </style>
+
+<!-- Site snow config injected as JSON to avoid JS parsing issues -->
+<script type="application/json" id="site-snow-config">{"enabled": {{ site.snow.enabled | default: false | jsonify }}}</script>
 
 <script>
 console.log('=== SETTINGS PAGE SCRIPT LOADED ===');
@@ -278,11 +367,56 @@ console.log('=== SETTINGS PAGE SCRIPT LOADED ===');
   }
   
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initThemeSelector);
+    document.addEventListener('DOMContentLoaded', function(){
+      initThemeSelector();
+      initMiscSettings();
+    });
   } else {
     initThemeSelector();
+    initMiscSettings();
   }
 })();
+
+function initMiscSettings() {
+  var toggle = document.getElementById('toggle-snow');
+  if (!toggle) return;
+
+  /* Site default from JSON block (safer than inline Liquid) */
+  var defaultEnabled = false;
+  try {
+    var cfgEl = document.getElementById('site-snow-config');
+    if (cfgEl) {
+      var cfg = JSON.parse(cfgEl.textContent || '{}');
+      defaultEnabled = !!cfg.enabled;
+    }
+  } catch (e) {}
+  var enabled = defaultEnabled;
+  try {
+    var lsEnabled = localStorage.getItem('snowEnabled');
+    var lsDisabled = localStorage.getItem('snowDisabled');
+    if (lsEnabled !== null) enabled = (lsEnabled === 'true');
+    if (lsDisabled !== null) enabled = (lsDisabled !== 'true');
+  } catch (e) {}
+
+  /* Checkbox reflects current enabled state */
+  toggle.checked = !!enabled;
+
+  toggle.addEventListener('change', function() {
+    var turnOn = toggle.checked;
+    try {
+      localStorage.setItem('snowEnabled', (turnOn).toString());
+      localStorage.setItem('snowDisabled', (!turnOn).toString());
+    } catch (e) {}
+    /* Provide quick feedback */
+    var small = toggle.parentElement && toggle.parentElement.nextElementSibling && toggle.parentElement.nextElementSibling.querySelector('small');
+    if (small) {
+      small.textContent = turnOn ? 'Snow is ON' : 'Snow is OFF';
+      setTimeout(function(){ small.textContent = 'Toggle gentle snow effect'; }, 1500);
+    }
+    /* Apply immediately */
+    setTimeout(function(){ try { location.reload(); } catch(e){} }, 200);
+  });
+}
 </script>
 
 
